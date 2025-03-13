@@ -354,11 +354,10 @@ const Dashboard = () => {
           <Alert severity="error">{error || "Loading AI-powered insights..."}</Alert>
         )}
 
-
-
       </Paper>
     </Container>
   );
 };
+
 
 export default Dashboard;
