@@ -10,9 +10,10 @@ CORS(app)
 
 # Load trained models
 income_model = joblib.load("savings_optimization_model.pkl")
-expense_model = joblib.load("savings_optimization_model.pkl") 
+expense_model = joblib.load("savings_optimization_model.pkl")
+
 # Load dataset
-df = pd.read_csv("data/expense_data_2.csv")  
+df = pd.read_csv("data/expense_data_2.csv")
 
 # Expense categories
 expense_columns = ["Rent", "Loan_Repayment", "Insurance", "Groceries", "Transport",
@@ -22,7 +23,7 @@ expense_columns = ["Rent", "Loan_Repayment", "Insurance", "Groceries", "Transpor
 manageable_expenses = ["Groceries", "Transport", "Eating_Out", "Entertainment"]
 fixed_expenses = ["Education", "Healthcare", "Insurance", "Loan_Repayment", "Miscellaneous", "Rent", "Utilities"]
 
-# Savings percentage recommendations 
+# Savings percentage recommendations
 savings_targets = {
     "Eating_Out": 0.30,
     "Entertainment": 0.25,
@@ -52,13 +53,17 @@ def user_budget_plan():
 
         # AI Estimates Budgets for ALL Categories (Manageable & Fixed)
         estimated_budget = {category: round(df[category].mean(), 2) for category in expense_columns}
+
+        # Ensure all categories have valid numeric values
         for category in expense_columns:
-            if category not in user_budget or user_budget[category] is None:
+            if category not in user_budget or user_budget[category] is None or user_budget[category] == "":
                 user_budget[category] = estimated_budget[category]
+            else:
+                user_budget[category] = float(user_budget[category])  # Convert entered values to float
 
         # Calculate Free Budget
         total_budget_allocated = sum(user_budget.values())
-        free_budget = user_income - total_budget_allocated
+        free_budget = user_income - total_budget_allocated if user_income else 0
 
         # Generate Transactions based on new budget
         transactions = []
@@ -72,17 +77,8 @@ def user_budget_plan():
             transaction_detail = {
                 "category": category,
                 "amount": new_expense,
-                "remaining_budget": remaining_budget
+                "remaining_budget": remaining_budget if remaining_budget is not None else 0
             }
-
-            if remaining_budget < 0:
-                excess = abs(remaining_budget)
-                if free_budget >= excess:
-                    free_budget -= excess
-                    transaction_detail["covered_by_free_budget"] = excess
-                else:
-                    transaction_detail["covered_by_savings"] = excess - free_budget
-                    free_budget = 0  
 
             transactions.append(transaction_detail)
 
@@ -93,24 +89,24 @@ def user_budget_plan():
         }
 
         # Generate AI Financial Advice for ALL Expenses
-        financial_advice = {}
-        for category, budget in user_budget.items():
-            if budget > 5000:
-                financial_advice[category] = f"⚠️ You are spending ${budget:.2f} on {category}. Consider reducing costs."
-            elif 2000 <= budget <= 5000:
-                financial_advice[category] = f"🟡 Your {category} expenses are moderate at ${budget:.2f}. Try saving more."
-            else:
-                financial_advice[category] = f"✅ Good job! Your {category} spending is under control at ${budget:.2f}."
+        financial_advice = {
+            category: f"⚠️ You are spending ${budget:.2f} on {category}. Consider reducing costs."
+            if budget > 5000 else (
+                f"🟡 Your {category} expenses are moderate at ${budget:.2f}. Try saving more."
+                if 2000 <= budget <= 5000 else f"✅ Good job! Your {category} spending is under control at ${budget:.2f}."
+            )
+            for category, budget in user_budget.items()
+        }
 
         return jsonify({
-            "income_prediction": user_income,
+            "income_prediction": user_income if user_income else 0,
             "income_source": income_source,
-            "past_savings": past_savings,
-            "budget_allocations": user_budget,  
-            "free_budget": free_budget,
+            "past_savings": past_savings if past_savings else 0,
+            "budget_allocations": {c: float(user_budget.get(c, 0)) for c in expense_columns},
+            "free_budget": free_budget if free_budget else 0,
             "transactions": transactions,
-            "savings_recommendations": savings_recommendations,
-            "financial_advice": financial_advice
+            "savings_recommendations": savings_recommendations if savings_recommendations else {},
+            "financial_advice": financial_advice if financial_advice else {}
         })
 
     except Exception as e:
