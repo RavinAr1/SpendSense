@@ -17,27 +17,152 @@ import {
 } from "@mui/material";
 
 import { Doughnut } from "react-chartjs-2";
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
+import {
+  Chart as ChartJS,
+  ArcElement,
+  Tooltip,
+  Legend,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+} from "chart.js";
+
 
 import SavingsIcon from "@mui/icons-material/Savings";
 import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
 import WarningAmberIcon from "@mui/icons-material/WarningAmber";
 import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
-import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
+// import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
+import SmsIcon from "@mui/icons-material/Sms";
 
-// Register Chart.js elements
-ChartJS.register(ArcElement, Tooltip, Legend);
+import CircularProgress from "@mui/material/CircularProgress";
+import { Bar } from "react-chartjs-2";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+
+
+ChartJS.register(ArcElement, Tooltip, Legend, CategoryScale, LinearScale, BarElement);
 
 const Dashboard = () => {
   const [dashboardData, setDashboardData] = useState(null);
   const [userIncome, setUserIncome] = useState("");
   const [pastSavings, setPastSavings] = useState("");
   const [userBudget, setUserBudget] = useState({});
+  const [smsTransactions, setSmsTransactions] = useState([]);
   const [error, setError] = useState(null);
+
+  const [loadingSms, setLoadingSms] = useState(false);
+
+  const manageableExpenses = ["Eating_Out", "Transport", "Entertainment", "Groceries"];
+  const fixedExpenses = ["Healthcare", "Insurance", "Miscellaneous", "Rent", "Utilities"];
+
+
+  const [allSmsData, setAllSmsData] = useState([]);
+
+
 
   useEffect(() => {
     fetchDashboardData({});
+    fetchSmsTransactions();
   }, []);
+
+
+
+
+
+
+  const prepareComparisonChart = () => {
+    const categories = [...manageableExpenses, ...fixedExpenses];
+  
+    const budgetData = categories.map(cat =>
+      dashboardData?.budget_allocations?.[cat] || 0
+    );
+  
+    const smsTotals = {};
+    allSmsData
+      .filter(txn => txn.type === "debit")
+      .forEach(txn => {
+        const cat = txn.category;
+        if (categories.includes(cat)) {
+          smsTotals[cat] = (smsTotals[cat] || 0) + txn.amount;
+        }
+      });
+  
+    const smsData = categories.map(cat => smsTotals[cat] || 0);
+  
+    return {
+      labels: categories,
+      datasets: [
+        {
+          label: "AI Budget (Estimated)",
+          data: budgetData,
+          backgroundColor: "#42A5F5"
+        },
+        {
+          label: "SMS Expenses (Actual)",
+          data: smsData,
+          backgroundColor: "#FF7043"
+        }
+      ]
+    };
+  };
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  const handleSyncSms = async () => {
+    setLoadingSms(true);
+    try {
+      const parseRes = await axios.get("http://127.0.0.1:5000/parse_sms_messages_gemini");
+  
+      // optional: toast if no new transactions
+      if (
+        !parseRes.data ||
+        !parseRes.data.new_transactions ||
+        parseRes.data.new_transactions.length === 0
+      ) {
+        toast.info("No new transactions found.");
+      } else {
+        parseRes.data.new_transactions.forEach((txn) => {
+          if (txn.type === "debit") {
+            toast.success(
+              `💸 $${txn.amount} spent at ${txn.vendor} for ${txn.category}`,
+              { autoClose: 10000 }
+            );
+          } else if (txn.type === "credit") {
+            toast.info(
+              `💰 $${txn.amount} received from ${txn.vendor} (${txn.category})`,
+              { autoClose: 4000 }
+            );
+          }
+        });
+      }
+  
+      await fetchSmsTransactions(); // refresh both recent and all
+    } catch (err) {
+      console.error("Error syncing SMS messages:", err);
+      toast.error("Failed to sync SMS messages.");
+    } finally {
+      setLoadingSms(false);
+    }
+  };
+  
+  
+
+
+
 
   const handleBudgetChange = (category, value) => {
     setUserBudget({ ...userBudget, [category]: value });
@@ -47,10 +172,27 @@ const Dashboard = () => {
     try {
       const response = await axios.post("http://127.0.0.1:5000/user_budget_plan", userInputs);
       setDashboardData(response.data);
+      setError(null);
     } catch (err) {
       setError("Error connecting to server.");
     }
   };
+
+  const fetchSmsTransactions = async () => {
+    try {
+      const [recentRes, allRes] = await Promise.all([
+        axios.get("http://127.0.0.1:5000/recent_sms_transactions"),
+        axios.get("http://127.0.0.1:5000/all_sms_transactions")
+      ]);
+  
+      setSmsTransactions(recentRes.data.recent_transactions || []);
+      setAllSmsData(allRes.data.all_transactions || []);
+    } catch (err) {
+      console.error("Error fetching SMS transactions:", err);
+    }
+  };
+  
+
 
   const handleSubmit = async () => {
     const userInputs = {
@@ -64,22 +206,24 @@ const Dashboard = () => {
     fetchDashboardData(userInputs);
   };
 
-  const manageableExpenses = ["Eating_Out", "Transport", "Entertainment", "Groceries"];
-  const fixedExpenses = ["Education", "Healthcare", "Insurance", "Loan_Repayment", "Miscellaneous", "Rent", "Utilities"];
+  const safeToFixed = (value) => {
+    return typeof value === "number" ? value.toFixed(2) : "0.00";
+  };
 
   return (
     <Container sx={{ mt: 4 }}>
+      <ToastContainer position="bottom-right" autoClose={3000} />
+
       <Paper elevation={5} sx={{ padding: 4, backgroundColor: "#F5F7FA", borderRadius: "15px" }}>
         <Typography variant="h4" sx={{ textAlign: "center", fontWeight: "bold", mb: 2 }}>
           🔹 AI-Powered Budget Planner 🔹
         </Typography>
 
-        {dashboardData ? (
-          <>
-
-     {/* Budget Input Form */}
-     <Card elevation={3} sx={{ backgroundColor: "#E3F2FD", p: 3, borderRadius: "10px", mb: 3 }}>
-          <Typography variant="h6" sx={{ fontWeight: "bold", mb: 2 }}>💰 Enter Your Budget Plan (or leave blank for AI estimate):</Typography>
+        {/* === Input Section === */}
+        <Card elevation={3} sx={{ backgroundColor: "#E3F2FD", p: 3, borderRadius: "10px", mb: 3 }}>
+          <Typography variant="h6" sx={{ fontWeight: "bold", mb: 2 }}>
+            💰 Enter Your Budget Plan (or leave blank for AI estimate):
+          </Typography>
           <Grid container spacing={2}>
             <Grid item xs={6}>
               <TextField
@@ -91,7 +235,6 @@ const Dashboard = () => {
                 onChange={(e) => setUserIncome(e.target.value)}
               />
             </Grid>
-
             <Grid item xs={6}>
               <TextField
                 label="Past Savings"
@@ -104,10 +247,14 @@ const Dashboard = () => {
             </Grid>
           </Grid>
 
+          <Typography variant="h6" sx={{ fontWeight: "bold", mt: 3 }}>
+            📊 Enter Expenses (or leave blank for AI estimate):
+          </Typography>
 
-          
+          <Typography variant="body2" sx={{ color: "gray", mb: 2 }}>
+            Leave any field blank to let AI estimate it. Enter a value to override with your own.
+          </Typography>
 
-          <Typography variant="h6" sx={{ fontWeight: "bold", mt: 3 }}>📊 Enter Expenses (or leave blank for AI estimate):</Typography>
           <Grid container spacing={2}>
             {[...manageableExpenses, ...fixedExpenses].map((category) => (
               <Grid item xs={6} sm={4} md={3} key={category}>
@@ -123,241 +270,316 @@ const Dashboard = () => {
             ))}
           </Grid>
 
-
-
-
-          <Button variant="contained" color="primary" onClick={handleSubmit} sx={{ mt: 3, width: "100%" }}>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={handleSubmit}
+            sx={{ mt: 3, width: "100%" }}
+          >
             Generate Budget Plan
           </Button>
         </Card>
 
+        {/* === Results Section === */}
+        {dashboardData ? (
+          <>
 
 
+{/* === AI Estimated Budget Cards === */}
+<Typography variant="h6" sx={{ mt: 2, mb: 1, fontWeight: "bold" }}>
+  🔹 Estimated Budget (AI)
+</Typography>
+<Box display="flex" justifyContent="center" flexWrap="wrap" gap={2} mb={3}>
+  {/* Income */}
+  <Card sx={{ width: "22%", minWidth: "250px", textAlign: "center", p: 2 }}>
+    <AccountBalanceWalletIcon fontSize="large" color="primary" />
+    <Typography variant="h6">Income</Typography>
+    <Typography variant="h5" color="green">
+      ${safeToFixed(dashboardData.income_prediction)}
+    </Typography>
+  </Card>
 
+  {/* Estimated Expenses */}
+  <Card sx={{ width: "22%", minWidth: "250px", textAlign: "center", p: 2 }}>
+    <MonetizationOnIcon fontSize="large" color="warning" />
+    <Typography variant="h6">Estimated Expenses</Typography>
+    <Typography variant="h5" color="warning.main">
+      $
+      {safeToFixed(
+        Object.values(dashboardData.budget_allocations || {}).reduce((a, b) => a + b, 0)
+      )}
+    </Typography>
+  </Card>
+</Box>
 
-          {/* Financial Overview */}
-            <Box display="flex" justifyContent="center" gap={2} mb={3}>
-              <Card sx={{ width: "30%", textAlign: "center", p: 2 }}>
-                <AccountBalanceWalletIcon fontSize="large" color="primary" />
-                <Typography variant="h6">Income</Typography>
-                <Typography variant="h5" color="green">
-                  ${dashboardData.income_prediction.toFixed(2)}
-                </Typography>
-              </Card>
-              <Card sx={{ width: "30%", textAlign: "center", p: 2 }}>
-                <AttachMoneyIcon fontSize="large" color="primary" />
-                <Typography variant="h6">Free Budget</Typography>
-                <Typography variant="h5" color="blue">
-                  ${dashboardData.free_budget.toFixed(2)}
-                </Typography>
-              </Card>
-            </Box>
+{/* === Actual SMS-Based Cards === */}
+<Typography variant="h6" sx={{ mt: 4, mb: 1, fontWeight: "bold" }}>
+  🔹 Actual Spending (SMS)
+</Typography>
+<Box display="flex" justifyContent="center" flexWrap="wrap" gap={2} mb={3}>
+  {/* Credit Received (SMS) */}
+  <Card sx={{ width: "22%", minWidth: "250px", textAlign: "center", p: 2, backgroundColor: "#E8F5E9" }}>
+    <MonetizationOnIcon fontSize="large" color="success" />
+    <Typography variant="h6">Credit Received (SMS)</Typography>
+    <Typography variant="h5" color="success.main">
+      ${safeToFixed(allSmsData.filter(txn => txn.type === "credit").reduce((sum, t) => sum + t.amount, 0))}
+    </Typography>
+    <Button
+      variant="text"
+      size="small"
+      onClick={() => {
+        const creditTotal = allSmsData
+          .filter((txn) => txn.type === "credit")
+          .reduce((sum, t) => sum + t.amount, 0);
+        setUserIncome((prev) => (parseFloat(prev || 0) + creditTotal).toFixed(2));
+      }}
+      sx={{ mt: 1 }}
+    >
+      + Add to Income
+    </Button>
+  </Card>
+
+  {/* Expenses from SMS */}
+  <Card sx={{ width: "22%", minWidth: "250px", textAlign: "center", p: 2 }}>
+    <SmsIcon fontSize="large" color="info" />
+    <Typography variant="h6">Expenses (SMS)</Typography>
+    <Typography variant="h5" color="info.main">
+      $
+      {safeToFixed(
+        allSmsData
+          .filter((txn) => txn.type === "debit")
+          .reduce((sum, t) => sum + t.amount, 0)
+      )}
+    </Typography>
+  </Card>
+
+  {/* Sync SMS */}
+  <Card sx={{ width: "22%", minWidth: "250px", textAlign: "center", p: 2 }}>
+    <SmsIcon fontSize="large" color="secondary" />
+    <Typography variant="h6">Sync SMS</Typography>
+    {loadingSms ? (
+      <Box display="flex" flexDirection="column" alignItems="center" mt={1}>
+        <CircularProgress size={24} />
+        <Typography variant="body2" color="textSecondary">Parsing SMS...</Typography>
+      </Box>
+    ) : (
+      <Button
+        variant="contained"
+        color="secondary"
+        onClick={handleSyncSms}
+        startIcon={<SmsIcon />}
+        disabled={loadingSms}
+      >
+        Fetch SMS Transactions
+      </Button>
+    )}
+  </Card>
+</Box>
 
 
 
             <Divider sx={{ my: 3 }} />
 
-
-
-
-            {/* Budget Breakdown */}
-            <Typography variant="h5" sx={{ fontWeight: "bold", mb: 1 }}>📊 Budget Breakdown:</Typography>
-            
-            <Typography variant="h6" sx={{ fontWeight: "bold", mt: 2 }}>💡 Manageable Expenses:</Typography>
-            <Grid container spacing={2}>
-              {Object.entries(dashboardData.budget_allocations).map(([category, amount]) =>
-                manageableExpenses.includes(category) ? (
-                  <Grid item xs={12} sm={6} md={4} key={category}>
-                    <Paper sx={{ padding: 2, backgroundColor: "#D4EDDA" }}>
-                      <Typography variant="body1" sx={{ fontWeight: "bold" }}>
-                        {category}:
-                      </Typography>
-                      <Typography variant="h6">
-                        ${amount.toFixed(2)}
-                      </Typography>
-                    </Paper>
-                  </Grid>
-                ) : null
-              )}
-            </Grid>
-
-            <Divider sx={{ my: 3 }} />
-
-            {/* 📌 Fixed Expenses */}
-            <Typography variant="h6" sx={{ fontWeight: "bold", mt: 3 }}>📌 Fixed Expenses:</Typography>
-            <Grid container spacing={2}>
-              {Object.entries(dashboardData.budget_allocations).map(([category, amount]) =>
-                fixedExpenses.includes(category) ? (
-                  <Grid item xs={12} sm={6} md={4} key={category}>
-                    <Paper sx={{ padding: 2, backgroundColor: "#FADBD8" }}>
-                      <Typography variant="body1" sx={{ fontWeight: "bold" }}>
-                        {category}:
-                      </Typography>
-                      <Typography variant="h6">
-                        ${amount.toFixed(2)}
-                      </Typography>
-                    </Paper>
-                  </Grid>
-                ) : null
-              )}
-            </Grid>
-
-            <Divider sx={{ my: 3 }} />
-
-            {/* 📊 NEW Doughnut Charts Section */}
-            <Typography variant="h5" sx={{ fontWeight: "bold", mt: 3 }}>
-              📊 Financial Overview (Visual Representation)
+            {/* === Budget Breakdown === */}
+            <Typography variant="h5" sx={{ fontWeight: "bold", mb: 1 }}>
+              📊 Budget Breakdown
             </Typography>
 
-            <Grid container spacing={3} justifyContent="center" sx={{ mt: 2 }}>
-              {/* Doughnut Chart - Income vs. Expenses */}
-              <Grid item xs={12} sm={6} md={4}>
-                <Paper sx={{ p: 2 }}>
-                  <Typography variant="h6" sx={{ textAlign: "center" }}>Income vs. Expenses</Typography>
-                  <Doughnut
-                    data={{
-                      labels: ["Income", "Remaining Funds"],
-                      datasets: [
-                        {
-                          data: [
-                            dashboardData.income_prediction || 0,
-                            dashboardData.free_budget || 0
-                          ],
-                          backgroundColor: ["#28A745", "#FF5733"],
-                        },
-                      ],
-                    }}
-                  />
-                </Paper>
-              </Grid>
-
-              {/* Doughnut Chart - Manageable Expenses */}
-              <Grid item xs={12} sm={6} md={4}>
-                <Paper sx={{ p: 2 }}>
-                  <Typography variant="h6" sx={{ textAlign: "center" }}>Manageable Expenses</Typography>
-                  <Doughnut
-                    data={{
-                      labels: manageableExpenses,
-                      datasets: [
-                        {
-                          data: manageableExpenses.map(
-                            (category) => dashboardData.budget_allocations[category] || 0
-                          ),
-                          backgroundColor: ["#007BFF", "#FFC107", "#28A745", "#17A2B8"],
-                        },
-                      ],
-                    }}
-                  />
-                </Paper>
-              </Grid>
-
-              {/* Doughnut Chart - Fixed Expenses */}
-              <Grid item xs={12} sm={6} md={4}>
-                <Paper sx={{ p: 2 }}>
-                  <Typography variant="h6" sx={{ textAlign: "center" }}>Fixed Expenses</Typography>
-                  <Doughnut
-                    data={{
-                      labels: fixedExpenses,
-                      datasets: [
-                        {
-                          data: fixedExpenses.map(
-                            (category) => dashboardData.budget_allocations[category] || 0
-                          ),
-                          backgroundColor: ["#FF5733", "#C70039", "#900C3F", "#581845"],
-                        },
-                      ],
-                    }}
-                  />
-                </Paper>
-              </Grid>
+            <Typography variant="h6" sx={{ mt: 2 }}>💡 Manageable Expenses:</Typography>
+            <Grid container spacing={2}>
+              {Object.entries(dashboardData.budget_allocations || {}).map(
+                ([category, amount]) =>
+                  manageableExpenses.includes(category) && (
+                    <Grid item xs={12} sm={6} md={4} key={category}>
+                      <Paper sx={{ p: 2, backgroundColor: "#D4EDDA" }}>
+                        <Typography variant="body1" fontWeight="bold">{category}:</Typography>
+                        <Typography variant="h6">${safeToFixed(amount)}</Typography>
+                      </Paper>
+                    </Grid>
+                  )
+              )}
             </Grid>
 
-            {/* Doughnut Chart - Savings vs. Remaining Budget */}
-            {/* <Grid container justifyContent="center" sx={{ mt: 3 }}>
-              <Grid item xs={12} sm={6} md={4}>
-                <Paper sx={{ p: 2 }}>
-                  <Typography variant="h6" sx={{ textAlign: "center" }}>Savings vs. Remaining Budget</Typography>
-                  <Doughnut
-                    data={{
-                      labels: ["Savings", "Remaining Budget"],
-                      datasets: [
-                        {
-                          data: [
-                            dashboardData.savings_recommendations.total_savings || 0,
-                            dashboardData.free_budget || 0,
-                          ],
-                          backgroundColor: ["#17A2B8", "#FFC107"],
+            <Typography variant="h6" sx={{ mt: 3 }}>📌 Fixed Expenses:</Typography>
+            <Grid container spacing={2}>
+              {Object.entries(dashboardData.budget_allocations || {}).map(
+                ([category, amount]) =>
+                  fixedExpenses.includes(category) && (
+                    <Grid item xs={12} sm={6} md={4} key={category}>
+                      <Paper sx={{ p: 2, backgroundColor: "#FADBD8" }}>
+                        <Typography variant="body1" fontWeight="bold">{category}:</Typography>
+                        <Typography variant="h6">${safeToFixed(amount)}</Typography>
+                      </Paper>
+                    </Grid>
+                  )
+              )}
+            </Grid>
+
+            <Divider sx={{ my: 3 }} />
+
+            {/* === Charts === */}
+            <Typography variant="h5" fontWeight="bold" mt={3}>📊 Visual Charts</Typography>
+            <Grid container spacing={2} justifyContent="center" alignItems="stretch">
+            {/* Donut Chart - Smaller */}
+            <Grid item xs={12} md={4}>
+              <Paper sx={{ p: 2, height: "100%" }}>
+                <Typography variant="h6" align="center" title="Free Budget = Income - Estimated Expenses">
+                  💰 Income vs. Remaining
+                </Typography>
+                <Doughnut
+                  data={{
+                    labels: ["Income", "Remaining"],
+                    datasets: [
+                      {
+                        data: [
+                          dashboardData.income_prediction || 0,
+                          dashboardData.free_budget || 0,
+                        ],
+                        backgroundColor: ["#28A745", "#FF5733"],
+                      },
+                    ],
+                  }}
+                  options={{
+                    plugins: {
+                      tooltip: {
+                        callbacks: {
+                          label: (tooltipItem) => {
+                            const value = tooltipItem.raw;
+                            return `$${safeToFixed(value)}`;
+                          },
                         },
-                      ],
-                    }}
-                  />
-                </Paper>
+                      },
+                    },
+                  }}
+                />
+              </Paper>
+            </Grid>
+
+            {/* Bar Chart - Larger */}
+            <Grid item xs={12} md={8}>
+              <Paper sx={{ p: 2 }}>
+                <Typography variant="h6" align="center">
+                  📊 Budget vs Actual Spending (via SMS)
+                </Typography>
+                <Bar data={prepareComparisonChart()} />
+              </Paper>
+            </Grid>
+          </Grid>
+
+
+            <Divider sx={{ my: 3 }} />
+
+            {/* === AI Transactions === */}
+
+
+            <Divider sx={{ my: 3 }} />
+              <Grid container spacing={2}>
+                {/* === AI Predicted Transactions === */}
+                <Grid item xs={12} md={6}>
+                  <Typography variant="h5" fontWeight="bold" mb={1}>💸 AI Predicted Transactions</Typography>
+                  <List>
+                    {(dashboardData.transactions || []).map((txn, index) => (
+                      <ListItem key={index}>
+                        <MonetizationOnIcon sx={{ color: "#007BFF", mr: 1 }} />
+                        <ListItemText
+                          primary={`Spent $${txn.amount} on ${txn.category}`}
+                          secondary={
+                            txn.remaining_budget >= 0
+                              ? `✅ Remaining: $${safeToFixed(txn.remaining_budget)}`
+                              : `⚠️ Over Budget by $${safeToFixed(Math.abs(txn.remaining_budget))}`
+                          }
+                        />
+                      </ListItem>
+                    ))}
+                  </List>
+                </Grid>
+
+                {/* === SMS Synced Transactions === */}
+                <Grid item xs={12} md={6}>
+                  <Typography variant="h5" fontWeight="bold" mb={1}>📲 SMS Synced Transactions</Typography>
+                  <Button
+                    variant="outlined"
+                    sx={{ mb: 2 }}
+                    onClick={() => window.location.href = "/transactions"}
+                  >
+                    View All Transactions
+                  </Button>
+                  <List>
+                    {smsTransactions.length === 0 ? (
+                      <ListItem>
+                        <ListItemText primary="No SMS transaction data available." />
+                      </ListItem>
+                    ) : (
+                      smsTransactions.map((txn, index) => (
+                        <ListItem key={index}>
+                          <SmsIcon sx={{ color: "#6C63FF", mr: 1 }} />
+                          <ListItemText
+                            primary={`$${txn.amount} spent at ${txn.vendor}`}
+                            secondary={`🗓️ ${txn.date} | 📂 ${txn.category}`}
+                          />
+                        </ListItem>
+                      ))
+                    )}
+                  </List>
+                </Grid>
               </Grid>
-            </Grid> */}
+
+
+
+
+
+
+
+
+
+
+
+
+            {/* === Recommendations === */}
 
             <Divider sx={{ my: 3 }} />
+<Grid container spacing={2}>
+  {/* 💡 Savings Recommendations */}
+  <Grid item xs={12} md={6}>
+    <Typography variant="h5" fontWeight="bold" mb={1}>💡 Savings Recommendations</Typography>
+    <List>
+      {Object.entries(dashboardData.savings_recommendations || {}).map(([cat, msg]) => (
+        <ListItem key={cat}>
+          <SavingsIcon sx={{ color: "#28A745", mr: 1 }} />
+          <ListItemText primary={msg} />
+        </ListItem>
+      ))}
+    </List>
+  </Grid>
 
-                     {/* 💸 Spending Transactions */}
-                     <Typography variant="h5" sx={{ fontWeight: "bold", mb: 1 }}>💸 Spending Transactions:</Typography>
-            <List>
-              {dashboardData.transactions.map((transaction, index) => (
-                <ListItem key={index}>
-                  <MonetizationOnIcon sx={{ color: "#007BFF", mr: 1 }} />
-                  <ListItemText
-                    primary={`🆕 Spent $${transaction.amount} on ${transaction.category}`}
-                    secondary={
-                      transaction.remaining_budget >= 0
-                        ? `✅ Remaining Budget: $${transaction.remaining_budget.toFixed(2)}`
-                        : `⚠️ Over Budget by $${Math.abs(transaction.remaining_budget).toFixed(2)}`
-                    }
-                  />
-                </ListItem>
-              ))}
-            </List>
-
-
-
-
-
-
-            <Divider sx={{ my: 3 }} />
-
-            {/* Savings Recommendations */}
-            <Typography variant="h5" sx={{ fontWeight: "bold", mb: 1 }}>💡 Savings Recommendations:</Typography>
-            <List>
-              {Object.entries(dashboardData.savings_recommendations).map(([category, advice]) => (
-                <ListItem key={category}>
-                  <SavingsIcon sx={{ color: "#28A745", mr: 1 }} />
-                  <ListItemText primary={`✅ ${advice}`} />
-                </ListItem>
-              ))}
-            </List>
-
-
-            <Divider sx={{ my: 3 }} />
+  {/* 📢 AI Financial Advice */}
+  <Grid item xs={12} md={6}>
+    <Typography variant="h5" fontWeight="bold" mb={1}>📢 AI Financial Advice</Typography>
+    <List>
+      {Object.entries(dashboardData.financial_advice || {}).map(([cat, msg]) => (
+        <ListItem key={cat}>
+          <WarningAmberIcon sx={{ color: "#FFC107", mr: 1 }} />
+          <ListItemText primary={msg} />
+        </ListItem>
+      ))}
+    </List>
+  </Grid>
+</Grid>
 
 
 
 
-            {/* AI-Generated Financial Advice */}
-            <Typography variant="h5" sx={{ fontWeight: "bold", mb: 1 }}>📢 AI-Generated Financial Advice:</Typography>
-            <List>
-              {Object.entries(dashboardData.financial_advice).map(([category, advice]) => (
-                <ListItem key={category}>
-                  <WarningAmberIcon sx={{ color: "#FFC107", mr: 1 }} />
-                  <ListItemText primary={advice} />
-                </ListItem>
-              ))}
-            </List>
+
+
+
+
           </>
         ) : (
-          <Alert severity="error">{error || "Loading AI-powered insights..."}</Alert>
+          <Alert severity="info">{error || "Loading AI-powered insights..."}</Alert>
         )}
-
       </Paper>
     </Container>
   );
 };
-
 
 export default Dashboard;

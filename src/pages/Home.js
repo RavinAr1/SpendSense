@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Typography, Grid, Card, CardActionArea, CardMedia, CardContent, Box, Accordion, AccordionSummary, AccordionDetails, List, ListItem, ListItemText } from "@mui/material";
+import { Container, Typography, Grid, Card, CardActionArea, CardMedia, CardContent, Box, Accordion, AccordionSummary, AccordionDetails } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 

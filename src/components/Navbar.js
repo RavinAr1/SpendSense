@@ -1,7 +1,7 @@
 import React from "react";
 import { AppBar, Toolbar, Typography, Button } from "@mui/material";
 import { Link } from "react-router-dom";
-import spendsenseLogo from "../assets/spendsenseLogo.jpg"; 
+// import spendsenseLogo from "../assets/spendsenseLogo.jpg"; 
 
 const Navbar = () => {
   return (
