@@ -4,20 +4,25 @@ import joblib
 import numpy as np
 import pandas as pd
 import random
+
 import os
 import json
 import requests
 from dotenv import load_dotenv
 import time
-import traceback
+
+
+
 
 load_dotenv("gemini.env")
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 
+
+
 app = Flask(__name__)
 CORS(app, supports_credentials=True)
 
-# Load Data & Models
+#Load Data & Models
 df = pd.read_csv("data/expense_data_2.csv")
 unified_model = joblib.load("unified_expense_predictor.pkl")
 income_fallback_model = joblib.load("income_predictor.pkl")
@@ -39,11 +44,13 @@ savings_targets = {
     "Miscellaneous": 0.20
 }
 
+#Predict Expenses API
 @app.route('/predict_expenses', methods=['POST'])
 def predict_expenses():
     try:
         user_input = request.json or {}
         all_columns = ["Income", "Income_Log", "Income_Squared"] + expense_columns
+
         input_data = {col: [np.nan] for col in all_columns}
         for key, value in user_input.items():
             if key in input_data:
@@ -76,18 +83,27 @@ def predict_expenses():
     except Exception as e:
         return jsonify({"error": str(e)})
 
+#Budget Planning API
 @app.route('/user_budget_plan', methods=['POST'])
 def user_budget_plan():
     try:
         data = request.json or {}
+
         user_income = data.get("user_income")
         past_savings = float(data.get("past_savings", 0))
         user_budget = data.get("user_budget", {})
 
+        #Smart: Predict income if user_income is None and expenses provided
         if user_income is None:
             known_expenses = {k: v for k, v in user_budget.items() if v not in [None, "", 0]}
+
             if known_expenses:
-                income_input_df = pd.DataFrame({col: [float(known_expenses.get(col, 0))] for col in expense_columns})
+                #Prepare expense features for prediction
+                income_input_df = pd.DataFrame({
+                    col: [float(known_expenses.get(col, 0))] for col in expense_columns
+                })
+
+                #Predict income
                 predicted_income = income_fallback_model.predict(income_input_df)[0]
                 user_income = float(predicted_income)
                 income_source = "Predicted from Expenses"
@@ -98,6 +114,8 @@ def user_budget_plan():
             user_income = float(user_income)
             income_source = "User Entered"
 
+
+        # Prepare input for model
         df_input = pd.DataFrame([{
             "Income": user_income,
             "Income_Log": np.log1p(user_income),
@@ -124,10 +142,20 @@ def user_budget_plan():
 
         for category in sampled_categories:
             budget_limit = user_budget.get(category, 500)
+            max_expense = min(budget_limit * 1.2, 1000) 
             new_expense = round(random.uniform(0.4, 1.2) * budget_limit, 2)
+            
             spending_tracker[category] += new_expense
             remaining_budget = round(user_budget.get(category, 0) - spending_tracker[category], 2)
-            transactions.append({"category": category, "amount": new_expense, "remaining_budget": remaining_budget})
+            
+            transactions.append({
+                "category": category,
+                "amount": new_expense,
+                "remaining_budget": remaining_budget
+            })
+
+
+
 
         savings_recommendations = {
             cat: f"Reduce {cat} by ${float(user_budget[cat] * savings_targets[cat]):.2f} to optimize savings."
@@ -151,7 +179,13 @@ def user_budget_plan():
             "past_savings": float(past_savings),
             "budget_allocations": {k: float(v) for k, v in user_budget.items()},
             "free_budget": float(free_budget),
-            "transactions": transactions,
+            "transactions": [
+                {
+                    "category": t["category"],
+                    "amount": float(t["amount"]),
+                    "remaining_budget": float(t["remaining_budget"])
+                } for t in transactions
+            ],
             "savings_recommendations": savings_recommendations,
             "financial_advice": financial_advice
         })
@@ -159,114 +193,113 @@ def user_budget_plan():
     except Exception as e:
         return jsonify({"error": str(e)})
 
+
+
+
+
+
+
 @app.route("/parse_sms_messages_gemini", methods=["GET"])
 def parse_sms_messages_gemini():
     try:
         with open("data/sms_messages.json", "r") as f:
             raw_messages = json.load(f)
 
-        random.shuffle(raw_messages)
-        selected_messages = raw_messages[:5]
-
         parsed_data = []
 
-        for entry in selected_messages:
+        for entry in raw_messages[:5]:  # ✅ Process 5 messages at a time
             text = entry["text"]
 
             prompt = f"""
-You are an AI assistant that extracts structured data from banking SMS.
-Given this message: \"{text}\", return ONLY valid JSON with:
-- amount (number)
-- type (\"debit\" or \"credit\")
-- date (format: YYYY-MM-DD HH:MM)
-- vendor (string)
-- category (choose ONLY from: Rent, Insurance, Groceries, Transport, Eating_Out, Entertainment, Utilities, Healthcare, Miscellaneous)
+Extract the following fields from this banking SMS:
+Message: "{text}"
 
-Example:
-{{
-  "amount": 120.50,
-  "type": "debit",
-  "date": "2025-03-30 14:22",
-  "vendor": "Domino's",
-  "category": "Eating_Out"
-}}
+Return JSON with:
+- amount
+- type (debit or credit)
+- date (format: YYYY-MM-DD HH:MM)
+- vendor
+- category (one of the following exactly as written: Rent, Insurance, Groceries, Transport, Eating_Out, Entertainment, Utilities, Healthcare, Miscellaneous)
+
 """
 
-            url = f"https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent?key={GEMINI_API_KEY}"
+            url = f"https://generativelanguage.googleapis.com/v1/models/gemini-1.5-pro:generateContent?key={GEMINI_API_KEY}"
             headers = {"Content-Type": "application/json"}
-            payload = {"contents": [{"parts": [{"text": prompt}]}]}
+            payload = {
+                "contents": [
+                    {"parts": [{"text": prompt}]}
+                ]
+            }
 
             response = requests.post(url, headers=headers, data=json.dumps(payload))
-            print("🔁 Gemini raw response:", response.text)
 
             try:
                 output = response.json()["candidates"][0]["content"]["parts"][0]["text"]
-                json_start = output.find("{")
-                json_end = output.rfind("}") + 1
-                cleaned_json = output[json_start:json_end]
-                parsed_json = json.loads(cleaned_json)
+                cleaned_output = output.strip().strip("```json").strip("```").strip()
+                parsed_json = json.loads(cleaned_output)
 
                 if all(k in parsed_json for k in ["amount", "type", "date", "vendor", "category"]):
                     parsed_data.append(parsed_json)
+                else:
+                    print("⚠️ Missing keys in parsed result:", parsed_json)
+
             except Exception as e:
-                print("❌ Could not parse Gemini response:", e)
-                continue
+                print("❌ Gemini API Error:", response.text)
+                print("❌ Could not parse this response")
 
-            time.sleep(5)
+            time.sleep(30)  # Wait to stay under quota
 
-        # Load existing data safely (create empty list if file doesn't exist or is invalid)
-        existing_data = []
-        if os.path.exists("data/parsed_transactions.json"):
-            try:
+
+            existing_data = []
+            if os.path.exists("data/parsed_transactions.json"):
                 with open("data/parsed_transactions.json", "r") as f:
-                    content = f.read().strip()
-                    if content:
-                        existing_data = json.loads(content)
-            except Exception as e:
-                print("⚠️ Failed to load parsed_transactions.json:", e)
+                    existing_data = json.load(f)
 
-        all_data = existing_data + parsed_data
-        with open("data/parsed_transactions.json", "w") as f:
-            json.dump(all_data, f, indent=2)
+            # Avoid duplicates if needed
+            all_data = existing_data + parsed_data
+            unique_data = [dict(t) for t in {tuple(d.items()) for d in all_data}]  # remove duplicates
 
-            return jsonify({"new_transactions": parsed_data})
-        
+            with open("data/parsed_transactions.json", "w") as f:
+                json.dump(unique_data, f, indent=2)
+
+
+
+
+        return jsonify({"parsed": parsed_data})
+
+    except Exception as e:
+        return jsonify({"error": str(e)})
+    
+
+
+    
+    
+    
+@app.route("/total_expenses_from_sms", methods=["GET"])
+def total_expenses_from_sms():
+    try:
+        with open("data/parsed_transactions.json", "r") as f:
+            transactions = json.load(f)
+
+        totals = {cat: 0.0 for cat in expense_columns}
+
+        for txn in transactions:
+            category = txn.get("category")
+            amount = float(txn.get("amount", 0))
+            if category in totals:
+                totals[category] += amount
+
+        totals = {k: round(v, 2) for k, v in totals.items()}
+        return jsonify({"totals_by_category": totals})
+
     except Exception as e:
         return jsonify({"error": str(e)})
 
-@app.route("/recent_sms_transactions", methods=["GET"])
-def recent_sms_transactions():
-    try:
-        with open("data/parsed_transactions.json", "r") as f:
-            transactions = json.load(f)
-
-        transactions_sorted = sorted(transactions, key=lambda x: x["date"], reverse=True)
-        return jsonify({"recent_transactions": transactions_sorted[:5]})
-    except Exception as e:
-        print("❌ Error in /recent_sms_transactions:", str(e))
-        traceback.print_exc()
-        return jsonify({"error": str(e)}), 500
 
 
 
 
-@app.route("/all_sms_transactions", methods=["GET"])
-def all_sms_transactions():
-    try:
-        with open("data/parsed_transactions.json", "r") as f:
-            transactions = json.load(f)
-        return jsonify({"all_transactions": transactions})
-    except Exception as e:
-        print("❌ Error in /all_sms_transactions:", str(e))
-        return jsonify({"error": str(e)}), 500
 
-
-
+# === Run the App ===
 if __name__ == '__main__':
     app.run(debug=True)
-
-
-
-
-
-
