@@ -27,6 +27,7 @@ import {
   BarElement,
 } from "chart.js";
 
+import RefreshIcon from "@mui/icons-material/Refresh";
 
 import SavingsIcon from "@mui/icons-material/Savings";
 import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
@@ -79,15 +80,21 @@ const Dashboard = () => {
       dashboardData?.budget_allocations?.[cat] || 0
     );
   
+
+
     const smsTotals = {};
     allSmsData
-      .filter(txn => txn.type === "debit")
+      .filter(txn => txn.type === "debit" && !txn.is_anomaly)
+
       .forEach(txn => {
         const cat = txn.category;
         if (categories.includes(cat)) {
           smsTotals[cat] = (smsTotals[cat] || 0) + txn.amount;
         }
       });
+
+
+      
   
     const smsData = categories.map(cat => smsTotals[cat] || 0);
   
@@ -139,12 +146,12 @@ const Dashboard = () => {
           if (txn.type === "debit") {
             toast.success(
               `💸 $${txn.amount} spent at ${txn.vendor} for ${txn.category}`,
-              { autoClose: 10000 }
+              { autoClose: 6000 }
             );
           } else if (txn.type === "credit") {
             toast.info(
               `💰 $${txn.amount} received from ${txn.vendor} (${txn.category})`,
-              { autoClose: 4000 }
+              { autoClose: 6000 }
             );
           }
         });
@@ -160,6 +167,38 @@ const Dashboard = () => {
   };
   
   
+
+
+
+
+
+
+  const [enrichStatus, setEnrichStatus] = useState("");
+  
+  const handleEnrichAnomalies = async () => {
+    setEnrichStatus("🧠 Enriching 5 anomaly messages...");
+    try {
+      const res = await axios.post("http://127.0.0.1:5000/enrich_anomaly_sms_batch");
+      setEnrichStatus(`✅ ${res.data.count} messages enriched`);
+      await fetchSmsTransactions(); // refresh updated transactions
+    } catch (err) {
+      console.error("Enrichment failed", err);
+      setEnrichStatus("❌ Enrichment failed.");
+    } finally {
+      setTimeout(() => setEnrichStatus(""), 5000);
+    }
+  };
+  
+  
+
+
+
+
+
+
+
+
+
 
 
 
@@ -286,9 +325,22 @@ const Dashboard = () => {
 
 
 {/* === AI Estimated Budget Cards === */}
-<Typography variant="h6" sx={{ mt: 2, mb: 1, fontWeight: "bold" }}>
-  🔹 Estimated Budget (AI)
-</Typography>
+<Box display="flex" alignItems="center" justifyContent="space-between" sx={{ mt: 2, mb: 1 }}>
+  <Typography variant="h6" fontWeight="bold">
+    🔹 Estimated Budget (AI)
+  </Typography>
+<Button
+  size="small"
+  variant="text"
+  color="info"
+  startIcon={<RefreshIcon />}
+  onClick={fetchSmsTransactions}
+>
+  Refresh
+</Button>
+
+</Box>
+
 <Box display="flex" justifyContent="center" flexWrap="wrap" gap={2} mb={3}>
   {/* Income */}
   <Card sx={{ width: "22%", minWidth: "250px", textAlign: "center", p: 2 }}>
@@ -339,6 +391,8 @@ const Dashboard = () => {
     </Button>
   </Card>
 
+
+
   {/* Expenses from SMS */}
   <Card sx={{ width: "22%", minWidth: "250px", textAlign: "center", p: 2 }}>
     <SmsIcon fontSize="large" color="info" />
@@ -347,33 +401,56 @@ const Dashboard = () => {
       $
       {safeToFixed(
         allSmsData
-          .filter((txn) => txn.type === "debit")
-          .reduce((sum, t) => sum + t.amount, 0)
+        .filter((txn) => txn.type === "debit" && !txn.is_anomaly)
+        .reduce((sum, t) => sum + t.amount, 0)
       )}
     </Typography>
   </Card>
 
-  {/* Sync SMS */}
-  <Card sx={{ width: "22%", minWidth: "250px", textAlign: "center", p: 2 }}>
-    <SmsIcon fontSize="large" color="secondary" />
-    <Typography variant="h6">Sync SMS</Typography>
-    {loadingSms ? (
-      <Box display="flex" flexDirection="column" alignItems="center" mt={1}>
-        <CircularProgress size={24} />
-        <Typography variant="body2" color="textSecondary">Parsing SMS...</Typography>
-      </Box>
-    ) : (
+
+
+
+ {/* Sync SMS + Enrich */}
+{/* Sync SMS + Enrich */}
+<Card sx={{ width: "22%", minWidth: "250px", textAlign: "center", p: 2 }}>
+  <SmsIcon fontSize="large" color="secondary" />
+  <Typography variant="h6">SMS Actions</Typography>
+
+
+  {loadingSms ? (
+    <Box display="flex" flexDirection="column" alignItems="center" mt={1}>
+      <CircularProgress size={24} />
+      <Typography variant="body2" color="textSecondary">Parsing SMS...</Typography>
+    </Box>
+  ) : (
+    <>
       <Button
         variant="contained"
-        color="secondary"
-        onClick={handleSyncSms}
-        startIcon={<SmsIcon />}
-        disabled={loadingSms}
+        color="primary"
+        onClick={async () => {
+          await handleSyncSms();
+          await handleEnrichAnomalies();
+        }}
+        sx={{ mt: 1 }}
       >
-        Fetch SMS Transactions
+        🔄 Sync + Enrich
       </Button>
-    )}
-  </Card>
+
+      {enrichStatus && (
+        <Typography
+          variant="caption"
+          color="textSecondary"
+          sx={{ mt: 1, display: "block" }}
+        >
+          {enrichStatus}
+        </Typography>
+      )}
+    </>
+  )}
+</Card>
+
+
+
 </Box>
 
 
@@ -494,6 +571,9 @@ const Dashboard = () => {
                   </List>
                 </Grid>
 
+
+
+
                 {/* === SMS Synced Transactions === */}
                 <Grid item xs={12} md={6}>
                   <Typography variant="h5" fontWeight="bold" mb={1}>📲 SMS Synced Transactions</Typography>
@@ -510,16 +590,50 @@ const Dashboard = () => {
                         <ListItemText primary="No SMS transaction data available." />
                       </ListItem>
                     ) : (
+
+
+
+
                       smsTransactions.map((txn, index) => (
-                        <ListItem key={index}>
-                          <SmsIcon sx={{ color: "#6C63FF", mr: 1 }} />
-                          <ListItemText
-                            primary={`$${txn.amount} spent at ${txn.vendor}`}
-                            secondary={`🗓️ ${txn.date} | 📂 ${txn.category}`}
-                          />
-                        </ListItem>
+                        <ListItem key={index} sx={{ bgcolor: txn.is_anomaly ? "#fff3cd" : "inherit" }}>
+                        <SmsIcon sx={{ color: txn.is_anomaly ? "#ff9800" : "#6C63FF", mr: 1 }} />
+                        <ListItemText
+                          primary={`$${txn.amount} spent at ${txn.vendor}`}
+                          secondary={
+                            <>
+                              🗓️ {txn.date} | 📂 {txn.category}
+                              {txn.is_anomaly && (
+                                <Typography variant="caption" color="error" display="block">
+                                  ⚠️ Potential Anomaly
+                                </Typography>
+                              )}
+                            </>
+                          }
+                        />
+                        {txn.is_anomaly && (
+                          <Button
+                            size="small"
+                            variant="outlined"
+                            color="success"
+                            onClick={async () => {
+                              try {
+                                await axios.post("http://127.0.0.1:5000/validate_sms_transaction", {
+                                  transaction_id: txn.id || txn._id || index, // depends on your backend ID
+                                });
+                                toast.success("Marked as valid ✅");
+                                await fetchSmsTransactions(); // refresh data
+                              } catch (err) {
+                                toast.error("Failed to validate.");
+                              }
+                            }}
+                          >
+                            Mark as Valid
+                          </Button>
+                        )}
+                      </ListItem>
                       ))
                     )}
+                    
                   </List>
                 </Grid>
               </Grid>

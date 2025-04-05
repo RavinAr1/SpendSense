@@ -1,9 +1,22 @@
+// ✅ Full StockInsights.js with GPT-style chatbot, emoji formatting, expandable chat history
+
 import React, { useEffect, useState, useCallback } from "react";
 import axios from "axios";
 import {
-  MenuItem, Select, FormControl, InputLabel, Typography,
-  Container, Paper, CircularProgress, Box, TextField,
-  Button, Divider, Collapse, IconButton
+  MenuItem,
+  Select,
+  FormControl,
+  InputLabel,
+  Typography,
+  Container,
+  Paper,
+  CircularProgress,
+  Box,
+  TextField,
+  Button,
+  Divider,
+  Collapse,
+  IconButton
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
@@ -13,8 +26,12 @@ import "react-datepicker/dist/react-datepicker.css";
 import { Line } from "react-chartjs-2";
 import {
   Chart as ChartJS,
-  LineElement, PointElement, CategoryScale,
-  LinearScale, Tooltip, Legend
+  LineElement,
+  PointElement,
+  CategoryScale,
+  LinearScale,
+  Tooltip,
+  Legend
 } from "chart.js";
 
 ChartJS.register(LineElement, PointElement, CategoryScale, LinearScale, Tooltip, Legend);
@@ -23,6 +40,8 @@ const StockInsights = () => {
   const [forecastData, setForecastData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedSymbol, setSelectedSymbol] = useState("AAPL");
+  const [modelType, setModelType] = useState("prophet");
+
 
   const [stockAdvice, setStockAdvice] = useState("");
   const [viewMode, setViewMode] = useState("forecast");
@@ -38,30 +57,47 @@ const StockInsights = () => {
   const fetchForecast = useCallback(async () => {
     setLoading(true);
     try {
-      const res = await axios.get(`http://127.0.0.1:5000/stock_forecast?symbol=${selectedSymbol}`);
+      const endpoint =
+        modelType === "prophet"
+          ? "stock_forecast"
+          : "stock_forecast_lstm";
+  
+      const res = await axios.get(
+        `http://127.0.0.1:5000/${endpoint}?symbol=${selectedSymbol}`
+      );
       setForecastData(res.data.forecast || []);
     } catch (err) {
       console.error("Error fetching forecast:", err);
     } finally {
       setLoading(false);
     }
-  }, [selectedSymbol]);
+  }, [selectedSymbol, modelType]);
+
+
+
 
   const fetchAdvice = useCallback(async () => {
     try {
-      const res = await axios.get(`http://127.0.0.1:5000/stock_advice?symbol=${selectedSymbol}`);
+      const res = await axios.get(
+        `http://127.0.0.1:5000/stock_advice?symbol=${selectedSymbol}&model=${modelType}`
+      );
       setStockAdvice(res.data.advice || "No insight available.");
     } catch (err) {
       console.error("Error fetching stock advice:", err);
       setStockAdvice("Could not generate insight.");
     }
-  }, [selectedSymbol]);
+  }, [selectedSymbol, modelType]);
+  
+
+
+
 
   useEffect(() => {
     fetchForecast();
     fetchAdvice();
   }, [fetchForecast, fetchAdvice]);
 
+  
   const prepareChartData = () => {
     let dataToDisplay = forecastData;
 
@@ -69,31 +105,28 @@ const StockInsights = () => {
       const start = new Date(startDate);
       const end = new Date(endDate);
       dataToDisplay = forecastData.filter((item) => {
-        const date = new Date(item.Date || item.ds);
+        const date = new Date(item.ds);
         return date >= start && date <= end;
       });
     } else if (viewMode === "forecast") {
       dataToDisplay = forecastData.slice(-30);
     }
 
-    const labels = dataToDisplay.map((item) => item.Date || item.ds);
+    const labels = dataToDisplay.map((item) => item.ds);
     const predicted = dataToDisplay.map((item) => Number(item.Predicted_Close));
+    const upper = dataToDisplay.map((item) => Number(item.Upper_Bound));
+    const lower = dataToDisplay.map((item) => Number(item.Lower_Bound));
 
-    const datasets = [
-      {
-        label: "Predicted Close",
-        data: predicted,
-        borderColor: "#42A5F5",
-        fill: false,
-        tension: 0.4
-      }
-    ];
-
-    if ("Upper_Bound" in dataToDisplay[0] && "Lower_Bound" in dataToDisplay[0]) {
-      const upper = dataToDisplay.map((item) => Number(item.Upper_Bound));
-      const lower = dataToDisplay.map((item) => Number(item.Lower_Bound));
-
-      datasets.push(
+    return {
+      labels,
+      datasets: [
+        {
+          label: "Predicted Close",
+          data: predicted,
+          borderColor: "#42A5F5",
+          fill: false,
+          tension: 0.4
+        },
         {
           label: "Upper Bound",
           data: upper,
@@ -110,10 +143,8 @@ const StockInsights = () => {
           fill: false,
           tension: 0.4
         }
-      );
-    }
-
-    return { labels, datasets };
+      ]
+    };
   };
 
   const handleChatSubmit = async () => {
@@ -137,6 +168,10 @@ const StockInsights = () => {
       console.error("Error from GPT-style chatbot:", err);
       const fallback = "❌ Could not generate a response.";
       setChatResponse(fallback);
+      setChatHistory((prev) => {
+        const updated = [{ question: chatInput, answer: fallback }, ...prev];
+        return updated.slice(0, 5);
+      });
     } finally {
       setChatLoading(false);
     }
@@ -145,28 +180,54 @@ const StockInsights = () => {
   return (
     <Container sx={{ mt: 4 }}>
       <Paper elevation={5} sx={{ p: 4 }}>
+
+        {/* Stock Selection */}
+        
         <FormControl fullWidth sx={{ mb: 3 }}>
-          <InputLabel>Stock</InputLabel>
+          <InputLabel id="stock-select-label">Stock</InputLabel>
           <Select
+            labelId="stock-select-label"
             value={selectedSymbol}
+            label="Stock"
             onChange={(e) => {
               setSelectedSymbol(e.target.value);
               setStartDate(null);
               setEndDate(null);
             }}
           >
+
+
             <MenuItem value="AAPL">Apple (AAPL)</MenuItem>
             <MenuItem value="MSFT">Microsoft (MSFT)</MenuItem>
             <MenuItem value="GOOGL">Google (GOOGL)</MenuItem>
             <MenuItem value="AMZN">Amazon (AMZN)</MenuItem>
             <MenuItem value="TSLA">Tesla (TSLA)</MenuItem>
           </Select>
+          
         </FormControl>
 
         <FormControl fullWidth sx={{ mb: 3 }}>
-          <InputLabel>View</InputLabel>
+          <InputLabel id="model-type-label">Model Type</InputLabel>
           <Select
+            labelId="model-type-label"
+            value={modelType}
+            label="Model Type"
+            onChange={(e) => setModelType(e.target.value)}
+          >
+            <MenuItem value="prophet">Prophet</MenuItem>
+            <MenuItem value="lstm">LSTM</MenuItem>
+          </Select>
+        </FormControl>
+
+
+
+        {/* View Toggle */}
+        <FormControl fullWidth sx={{ mb: 3 }}>
+          <InputLabel id="view-toggle-label">View</InputLabel>
+          <Select
+            labelId="view-toggle-label"
             value={viewMode}
+            label="View"
             onChange={(e) => setViewMode(e.target.value)}
           >
             <MenuItem value="forecast">Forecast Only (Last 30 Days)</MenuItem>
@@ -174,9 +235,27 @@ const StockInsights = () => {
           </Select>
         </FormControl>
 
+        {/* Date Range Pickers */}
         <Box display="flex" gap={2} sx={{ mb: 3 }}>
-          <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} placeholderText="Start Date" dateFormat="yyyy-MM-dd" />
-          <DatePicker selected={endDate} onChange={(date) => setEndDate(date)} minDate={startDate} placeholderText="End Date" dateFormat="yyyy-MM-dd" />
+          <DatePicker
+            selected={startDate}
+            onChange={(date) => setStartDate(date)}
+            selectsStart
+            startDate={startDate}
+            endDate={endDate}
+            placeholderText="Start Date"
+            dateFormat="yyyy-MM-dd"
+          />
+          <DatePicker
+            selected={endDate}
+            onChange={(date) => setEndDate(date)}
+            selectsEnd
+            startDate={startDate}
+            endDate={endDate}
+            minDate={startDate}
+            placeholderText="End Date"
+            dateFormat="yyyy-MM-dd"
+          />
         </Box>
 
         <Typography variant="h4" gutterBottom>
@@ -199,9 +278,10 @@ const StockInsights = () => {
           </>
         )}
 
+        {/* Chatbot Section */}
         <Divider sx={{ my: 4 }} />
         <Typography variant="h5" gutterBottom>
-          🤖 Ask StockBot
+          🤖 Ask StockBot (GPT-style)
         </Typography>
 
         <Box display="flex" gap={2} alignItems="center" sx={{ mb: 2 }}>

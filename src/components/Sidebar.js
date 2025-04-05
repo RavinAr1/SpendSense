@@ -71,17 +71,17 @@ const Sidebar = () => {
 
 
           <ListItem disablePadding>
-            <ListItemButton component={Link} to="/insights">
+            <ListItemButton component={Link} to="/stockInsights">
               <Insights sx={{ mr: 2 }} />
-              <ListItemText primary="Insights" />
+              <ListItemText primary="Stock Insights" />
             </ListItemButton>
           </ListItem>
 
 
           <ListItem disablePadding>
-            <ListItemButton component={Link} to="/profile">
+            <ListItemButton component={Link} to="/transactions">
               <Person sx={{ mr: 2 }} />
-              <ListItemText primary="Profile" />
+              <ListItemText primary="Transactions" />
             </ListItemButton>
           </ListItem>
 

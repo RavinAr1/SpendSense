@@ -37,8 +37,8 @@ const Home = () => {
         <Grid container spacing={4} justifyContent="center" sx={{ mt: 3 }}>
           {[
             { title: "Dashboard", image: "/assets/dashboard.jpg", path: "/dashboard" },
-            { title: "Insights", image: "/assets/insights.jpg", path: "/insights" },
-            { title: "User Profile", image: "/assets/user.jpg", path: "/profile" },
+            { title: "Stock Insights", image: "/assets/insights.jpg", path: "/insights" },
+            { title: "SMS Transactions", image: "/assets/user.jpg", path: "/transactions" },
           ].map((pane) => (
             <Grid item key={pane.title} xs={12} sm={4}>
               <Card
