@@ -1,0 +1,402 @@
+[
+  {
+    "text": "331.33 debited from AC XXXXXXXX6545 as POS TXN on 30 Mar 2025 18:28 at Domino's. Avl Bal 2021.74 Call 94112448888 for info",
+    "is_anomaly": false,
+    "amount": 331.33,
+    "type": "debit",
+    "date": "2025-03-30 18:28",
+    "vendor": "Domino's",
+    "category": "Eating_Out"
+  },
+  {
+    "text": "48.23 debited from AC XXXXXXXX6545 as POS TXN on 16 Mar 2025 02:27 at Bookstore. Avl Bal 1969.34 Call 94112448888 for info",
+    "is_anomaly": false,
+    "amount": 48.23,
+    "type": "debit",
+    "date": "2025-03-16 02:27",
+    "vendor": "Bookstore",
+    "category": "Entertainment"
+  },
+  {
+    "text": "212.18 debited from AC XXXXXXXX6545 as POS TXN on 07 Mar 2025 00:54 at Domino's. Avl Bal 4947.53 Call 94112448888 for info",
+    "is_anomaly": false,
+    "amount": 212.18,
+    "type": "debit",
+    "date": "2025-03-07 00:54",
+    "vendor": "Domino's",
+    "category": "Eating_Out"
+  },
+  {
+    "text": "346.18 debited from AC XXXXXXXX6545 as POS TXN on 27 Mar 2025 16:05 at Keells Super. Avl Bal 4944.73 Call 94112448888 for info",
+    "is_anomaly": false,
+    "amount": 346.18,
+    "type": "debit",
+    "date": "2025-03-27 16:05",
+    "vendor": "Keells Super",
+    "category": "Groceries"
+  },
+  {
+    "text": "323.39 debited from AC XXXXXXXX6545 as POS TXN on 01 Mar 2025 22:48 at Spar Supermarket. Avl Bal 2107.84 Call 94112448888 for info",
+    "is_anomaly": false,
+    "amount": 323.39,
+    "type": "debit",
+    "date": "2025-03-01 22:48",
+    "vendor": "Spar Supermarket",
+    "category": "Groceries"
+  },
+  {
+    "text": "208.08 debited from AC XXXXXXXX6545 as POS TXN on 24 Mar 2025 18:30 at Mobitel Postpaid. Avl Bal 1554.7 Call 94112448888 for info",
+    "is_anomaly": false,
+    "amount": 208.08,
+    "type": "debit",
+    "date": "2025-03-24 18:30",
+    "vendor": "Mobitel Postpaid",
+    "category": "Miscellaneous"
+  },
+  {
+    "text": "234.4 debited from AC XXXXXXXX6545 as POS TXN on 11 Mar 2025 02:57 at Domino's. Avl Bal 4295.69 Call 94112448888 for info",
+    "is_anomaly": false,
+    "amount": 234.4,
+    "type": "debit",
+    "date": "2025-03-11 02:57",
+    "vendor": "Domino's",
+    "category": "Eating_Out"
+  },
+  {
+    "text": "161.64 debited from AC XXXXXXXX6545 as POS TXN on 05 Mar 2025 08:07 at Mobitel Postpaid. Avl Bal 2991.24 Call 94112448888 for info",
+    "is_anomaly": false,
+    "amount": 161.64,
+    "type": "debit",
+    "date": "2025-03-05 08:07",
+    "vendor": "Mobitel Postpaid",
+    "category": "Miscellaneous"
+  },
+  {
+    "text": "278.49 debited from AC XXXXXXXX6545 as POS TXN on 09 Mar 2025 13:03 at Cafe Mocha. Avl Bal 3638.69 Call 94112448888 for info",
+    "is_anomaly": false,
+    "amount": 278.49,
+    "type": "debit",
+    "date": "2025-03-09 13:03",
+    "vendor": "Cafe Mocha",
+    "category": "Eating_Out"
+  },
+  {
+    "text": "126.66 debited from AC XXXXXXXX6545 as POS TXN on 03 Mar 2025 09:17 at LifeGuard. Avl Bal 1943.44 Call 94112448888 for info",
+    "is_anomaly": false,
+    "amount": 126.66,
+    "type": "debit",
+    "date": "2025-03-03 09:17",
+    "vendor": "LifeGuard",
+    "category": "Miscellaneous"
+  },
+  {
+    "text": "190.69 debited from AC XXXXXXXX6545 as POS TXN on 22 Mar 2025 10:44 at Domino's. Avl Bal 1971.57 Call 94112448888 for info",
+    "is_anomaly": false,
+    "amount": 190.69,
+    "type": "debit",
+    "date": "2025-03-22 10:44",
+    "vendor": "Domino's",
+    "category": "Eating_Out"
+  },
+  {
+    "text": "150.47 debited from AC XXXXXXXX6545 as POS TXN on 13 Mar 2025 04:38 at Water Board. Avl Bal 1075.19 Call 94112448888 for info",
+    "is_anomaly": false,
+    "amount": 150.47,
+    "type": "debit",
+    "date": "2025-03-13 04:38",
+    "vendor": "Water Board",
+    "category": "Utilities"
+  },
+  {
+    "text": "171.16 debited from AC XXXXXXXX6545 as POS TXN on 29 Mar 2025 16:05 at Water Board. Avl Bal 3517.52 Call 94112448888 for info",
+    "is_anomaly": false,
+    "amount": 171.16,
+    "type": "debit",
+    "date": "2025-03-29 16:05",
+    "vendor": "Water Board",
+    "category": "Utilities"
+  },
+  {
+    "text": "154.19 debited from AC XXXXXXXX6545 as POS TXN on 29 Mar 2025 03:02 at Steam Games. Avl Bal 1884.04 Call 94112448888 for info",
+    "is_anomaly": false,
+    "amount": 154.19,
+    "type": "debit",
+    "date": "2025-03-29 03:02",
+    "vendor": "Steam Games",
+    "category": "Entertainment"
+  },
+  {
+    "text": "120.88 debited from AC XXXXXXXX6545 as POS TXN on 10 Mar 2025 12:02 at Water Board. Avl Bal 1387.96 Call 94112448888 for info",
+    "is_anomaly": false,
+    "amount": 120.88,
+    "type": "debit",
+    "date": "2025-03-10 12:02",
+    "vendor": "Water Board",
+    "category": "Utilities"
+  },
+  {
+    "text": "54.61 debited from AC XXXXXXXX6545 as POS TXN on 26 Mar 2025 12:40 at Hardware Store. Avl Bal 3482.95 Call 94112448888 for info",
+    "is_anomaly": false,
+    "amount": 54.61,
+    "type": "debit",
+    "date": "2025-03-26 12:40",
+    "vendor": "Hardware Store",
+    "category": "Miscellaneous"
+  },
+  {
+    "text": "113.82 debited from AC XXXXXXXX6545 as POS TXN on 11 Mar 2025 04:12 at HNB Insurance. Avl Bal 1322.01 Call 94112448888 for info",
+    "is_anomaly": false,
+    "amount": 113.82,
+    "type": "debit",
+    "date": "2025-03-11 04:12",
+    "vendor": "HNB Insurance",
+    "category": "Insurance"
+  },
+  {
+    "text": "295.77 debited from AC XXXXXXXX6545 as POS TXN on 07 Mar 2025 22:09 at Domino's. Avl Bal 1360.84 Call 94112448888 for info",
+    "is_anomaly": false,
+    "amount": 295.77,
+    "type": "debit",
+    "date": "2025-03-07 22:09",
+    "vendor": "Domino's",
+    "category": "Eating_Out"
+  },
+  {
+    "text": "105.13 debited from AC XXXXXXXX6545 as POS TXN on 11 Mar 2025 02:05 at Netflix. Avl Bal 4903.72 Call 94112448888 for info",
+    "is_anomaly": false,
+    "amount": 105.13,
+    "type": "debit",
+    "date": "2025-03-11 02:05",
+    "vendor": "Netflix",
+    "category": "Entertainment"
+  },
+  {
+    "text": "128.06 debited from AC XXXXXXXX6545 as POS TXN on 22 Mar 2025 14:11 at Steam Games. Avl Bal 1391.59 Call 94112448888 for info",
+    "is_anomaly": false,
+    "amount": 128.06,
+    "type": "debit",
+    "date": "2025-03-22 14:11",
+    "vendor": "Steam Games",
+    "category": "Entertainment"
+  },
+  {
+    "text": "379.09 debited from AC XXXXXXXX6545 as POS TXN on 13 Mar 2025 06:35 at Arpico Supercenter. Avl Bal 1709.74 Call 94112448888 for info",
+    "is_anomaly": false,
+    "amount": 379.09,
+    "type": "debit",
+    "date": "2025-03-13 06:35",
+    "vendor": "Arpico Supercenter",
+    "category": "Groceries"
+  },
+  {
+    "text": "474.79 debited from AC XXXXXXXX6545 as POS TXN on 10 Mar 2025 05:50 at House Lease. Avl Bal 3881.46 Call 94112448888 for info",
+    "is_anomaly": false,
+    "amount": 474.79,
+    "type": "debit",
+    "date": "2025-03-10 05:50",
+    "vendor": "House Lease",
+    "category": "Rent"
+  },
+  {
+    "text": "672.42 debited from AC XXXXXXXX6545 as POS TXN on 14 Mar 2025 16:44 at House Lease. Avl Bal 3706.13 Call 94112448888 for info",
+    "is_anomaly": false,
+    "amount": 672.42,
+    "type": "debit",
+    "date": "2025-03-14 16:44",
+    "vendor": "House Lease",
+    "category": "Rent"
+  },
+  {
+    "text": "240.29 debited from AC XXXXXXXX6545 as POS TXN on 09 Mar 2025 00:35 at Pizza Hut. Avl Bal 1390.34 Call 94112448888 for info",
+    "is_anomaly": false,
+    "amount": 240.29,
+    "type": "debit",
+    "date": "2025-03-09 00:35",
+    "vendor": "Pizza Hut",
+    "category": "Eating_Out"
+  },
+  {
+    "text": "102.4 debited from AC XXXXXXXX6545 as POS TXN on 15 Mar 2025 12:29 at YouTube Premium. Avl Bal 3960.66 Call 94112448888 for info",
+    "is_anomaly": false,
+    "amount": 102.4,
+    "type": "debit",
+    "date": "2025-03-15 12:29",
+    "vendor": "YouTube Premium",
+    "category": "Entertainment"
+  },
+  {
+    "text": "37.35 debited from AC XXXXXXXX6545 as POS TXN on 10 Mar 2025 02:45 at Hardware Store. Avl Bal 1848.94 Call 94112448888 for info",
+    "is_anomaly": false,
+    "amount": 37.35,
+    "type": "debit",
+    "date": "2025-03-10 02:45",
+    "vendor": "Hardware Store",
+    "category": "Miscellaneous"
+  },
+  {
+    "text": "187.57 debited from AC XXXXXXXX6545 as POS TXN on 14 Mar 2025 08:00 at Spotify. Avl Bal 2034.53 Call 94112448888 for info",
+    "is_anomaly": false,
+    "amount": 187.57,
+    "type": "debit",
+    "date": "2025-03-14 08:00",
+    "vendor": "Spotify",
+    "category": "Entertainment"
+  },
+  {
+    "text": "147.05 debited from AC XXXXXXXX6545 as POS TXN on 23 Mar 2025 05:49 at Steam Games. Avl Bal 3596.7 Call 94112448888 for info",
+    "is_anomaly": false,
+    "amount": 147.05,
+    "type": "debit",
+    "date": "2025-03-23 05:49",
+    "vendor": "Steam Games",
+    "category": "Entertainment"
+  },
+  {
+    "text": "205.1 debited from AC XXXXXXXX6545 as POS TXN on 06 Mar 2025 16:34 at HNB Insurance. Avl Bal 3995.0 Call 94112448888 for info",
+    "is_anomaly": false,
+    "amount": 205.1,
+    "type": "debit",
+    "date": "2025-03-06 16:34",
+    "vendor": "HNB Insurance",
+    "category": "Insurance"
+  },
+  {
+    "text": "215.38 debited from AC XXXXXXXX6545 as POS TXN on 30 Mar 2025 08:23 at Water Board. Avl Bal 1565.3 Call 94112448888 for info",
+    "is_anomaly": false,
+    "amount": 215.38,
+    "type": "debit",
+    "date": "2025-03-30 08:23",
+    "vendor": "Water Board",
+    "category": "Utilities"
+  },
+  {
+    "text": "361.79 debited from AC XXXXXXXX6545 as POS TXN on 11 Mar 2025 11:46 at Spar Supermarket. Avl Bal 2391.09 Call 94112448888 for info",
+    "is_anomaly": false,
+    "amount": 361.79,
+    "type": "debit",
+    "date": "2025-03-11 11:46",
+    "vendor": "Spar Supermarket",
+    "category": "Groceries"
+  },
+  {
+    "text": "171.89 debited from AC XXXXXXXX6545 as POS TXN on 22 Mar 2025 23:59 at Asiri Medical. Avl Bal 4390.78 Call 94112448888 for info",
+    "is_anomaly": false,
+    "amount": 171.89,
+    "type": "debit",
+    "date": "2025-03-22 23:59",
+    "vendor": "Asiri Medical",
+    "category": "Healthcare"
+  },
+  {
+    "text": "163.07 debited from AC XXXXXXXX6545 as POS TXN on 03 Mar 2025 03:33 at Allianz. Avl Bal 2313.77 Call 94112448888 for info",
+    "is_anomaly": false,
+    "amount": 163.07,
+    "type": "debit",
+    "date": "2025-03-03 03:33",
+    "vendor": "Allianz",
+    "category": "Insurance"
+  },
+  {
+    "text": "682.21 debited from AC XXXXXXXX6545 as POS TXN on 08 Mar 2025 03:41 at Flat Rent. Avl Bal 4528.19 Call 94112448888 for info",
+    "is_anomaly": false,
+    "amount": 682.21,
+    "type": "debit",
+    "date": "2025-03-08 03:41",
+    "vendor": "Flat Rent",
+    "category": "Rent"
+  },
+  {
+    "text": "361.21 debited from AC XXXXXXXX6545 as POS TXN on 26 Mar 2025 06:59 at Spar Supermarket. Avl Bal 1633.54 Call 94112448888 for info",
+    "is_anomaly": false,
+    "amount": 361.21,
+    "type": "debit",
+    "date": "2025-03-26 06:59",
+    "vendor": "Spar Supermarket",
+    "category": "Groceries"
+  },
+  {
+    "text": "188.82 debited from AC XXXXXXXX6545 as POS TXN on 06 Mar 2025 08:53 at Lanka Hospitals. Avl Bal 3666.59 Call 94112448888 for info",
+    "is_anomaly": false,
+    "amount": 188.82,
+    "type": "debit",
+    "date": "2025-03-06 08:53",
+    "vendor": "Lanka Hospitals",
+    "category": "Healthcare"
+  },
+  {
+    "text": "198.72 debited from AC XXXXXXXX6545 as POS TXN on 01 Mar 2025 20:44 at Lanka Hospitals. Avl Bal 4192.6 Call 94112448888 for info",
+    "is_anomaly": false,
+    "amount": 198.72,
+    "type": "debit",
+    "date": "2025-03-01 20:44",
+    "vendor": "Lanka Hospitals",
+    "category": "Healthcare"
+  },
+  {
+    "text": "371.68 debited from AC XXXXXXXX6545 as POS TXN on 12 Mar 2025 19:37 at Spar Supermarket. Avl Bal 2907.06 Call 94112448888 for info",
+    "is_anomaly": false,
+    "amount": 371.68,
+    "type": "debit",
+    "date": "2025-03-12 19:37",
+    "vendor": "Spar Supermarket",
+    "category": "Groceries"
+  },
+  {
+    "text": "340.47 debited from AC XXXXXXXX6545 as POS TXN on 20 Mar 2025 17:46 at Arpico Supercenter. Avl Bal 1047.99 Call 94112448888 for info",
+    "is_anomaly": false,
+    "amount": 340.47,
+    "type": "debit",
+    "date": "2025-03-20 17:46",
+    "vendor": "Arpico Supercenter",
+    "category": "Groceries"
+  },
+  {
+    "text": "180.19 debited from AC XXXXXXXX6545 as POS TXN on 28 Mar 2025 12:23 at Lanka Hospitals. Avl Bal 4029.03 Call 94112448888 for info",
+    "is_anomaly": false,
+    "amount": 180.19,
+    "type": "debit",
+    "date": "2025-03-28 12:23",
+    "vendor": "Lanka Hospitals",
+    "category": "Healthcare"
+  },
+  {
+    "text": "179.82 debited from AC XXXXXXXX6545 as POS TXN on 25 Mar 2025 01:09 at Fuel Station. Avl Bal 2226.56 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "127.82 debited from AC XXXXXXXX6545 as POS TXN on 03 Mar 2025 00:52 at Union Assurance. Avl Bal 4525.76 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "299.25 debited from AC XXXXXXXX6545 as POS TXN on 10 Mar 2025 03:13 at Uber Rides. Avl Bal 1270.96 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "132.02 debited from AC XXXXXXXX6545 as POS TXN on 11 Mar 2025 02:37 at Steam Games. Avl Bal 2425.27 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "193.7 debited from AC XXXXXXXX6545 as POS TXN on 28 Mar 2025 10:54 at Pharmacy. Avl Bal 3775.01 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "7191.62 credited to AC XXXXXXXX6545 on 25 Mar 2025 20:58 as Bank Transfer. Avl Bal 1989.39 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "5263.03 credited to AC XXXXXXXX6545 on 15 Mar 2025 22:43 as Bank Transfer. Avl Bal 2003.57 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "5487.17 credited to AC XXXXXXXX6545 on 02 Mar 2025 12:01 as Freelance Payment. Avl Bal 1889.1 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "6235.92 credited to AC XXXXXXXX6545 on 14 Mar 2025 01:12 as Freelance Payment. Avl Bal 4900.15 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "9468.14 credited to AC XXXXXXXX6545 on 03 Mar 2025 21:03 as Bank Transfer. Avl Bal 4967.26 Call 94112448888 for info",
+    "is_anomaly": false
+  }
+]

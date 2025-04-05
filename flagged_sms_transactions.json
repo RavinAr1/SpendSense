@@ -1,0 +1,802 @@
+[
+  {
+    "text": "0.57 debited from AC XXXXXXXX2154 as POS TXN on 16 Apr 2025 03:29 at UnknownVendor. Avl Bal 2968.36 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "393.61 debited from AC XXXXXXXX2154 as POS TXN on 02 Apr 2025 15:12 at Keells. Avl Bal 2531.36 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "99.39 debited from AC XXXXXXXX2154 as POS TXN on 01 Apr 2025 21:17 at Cafe Mocha. Avl Bal 1928.61 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "146.05 debited from AC XXXXXXXX2154 as POS TXN on 07 Apr 2025 22:00 at Cafe Mocha. Avl Bal 4310.81 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "86.33 debited from AC XXXXXXXX2154 as POS TXN on 13 Apr 2025 02:51 at Domino's. Avl Bal 3771.43 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "367.65 debited from AC XXXXXXXX2154 as POS TXN on 14 Apr 2025 22:39 at Water Board. Avl Bal 3009.3 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "146.25 debited from AC XXXXXXXX2154 as POS TXN on 08 Apr 2025 01:39 at Cafe Mocha. Avl Bal 2623.32 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "246.8 debited from AC XXXXXXXX2154 as POS TXN on 03 Apr 2025 10:55 at Cafe Mocha. Avl Bal 713.74 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "245.99 debited from AC XXXXXXXX2154 as POS TXN on 20 Apr 2025 12:50 at Domino's. Avl Bal 2811.79 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "163.4 debited from AC XXXXXXXX2154 as POS TXN on 08 Apr 2025 19:02 at Keells. Avl Bal 4222.83 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "495.32 debited from AC XXXXXXXX2154 as POS TXN on 13 Apr 2025 18:39 at Spar Supermarket. Avl Bal 1313.44 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "262.99 debited from AC XXXXXXXX2154 as POS TXN on 26 Apr 2025 07:52 at Water Board. Avl Bal 761.17 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "283.07 debited from AC XXXXXXXX2154 as POS TXN on 08 Apr 2025 14:57 at Cafe Mocha. Avl Bal 1004.51 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "228.82 debited from AC XXXXXXXX2154 as POS TXN on 29 Apr 2025 20:32 at Water Board. Avl Bal 3341.7 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "416.35 debited from AC XXXXXXXX2154 as POS TXN on 28 Apr 2025 21:50 at Mobitel. Avl Bal 1601.93 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "271.76 debited from AC XXXXXXXX2154 as POS TXN on 09 Apr 2025 06:57 at Water Board. Avl Bal 1988.02 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "69.01 debited from AC XXXXXXXX2154 as POS TXN on 08 Apr 2025 06:40 at Mobitel. Avl Bal 1717.51 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "215.69 debited from AC XXXXXXXX2154 as POS TXN on 05 Apr 2025 04:59 at Water Board. Avl Bal 4517.7 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "165.33 debited from AC XXXXXXXX2154 as POS TXN on 20 Apr 2025 00:52 at Cafe Mocha. Avl Bal 2210.92 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "332.46 debited from AC XXXXXXXX2154 as POS TXN on 05 Apr 2025 16:18 at Mobitel. Avl Bal 3541.54 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "17398.84 debited from AC XXXXXXXX2154 as POS TXN on 18 Apr 2025 11:20 at UnknownVendor. Avl Bal 3696.18 Call 94112448888 for info",
+    "is_anomaly": true
+  },
+  {
+    "text": "407.03 debited from AC XXXXXXXX2154 as POS TXN on 23 Apr 2025 16:37 at Cafe Mocha. Avl Bal 529.5 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "37524.31 debited from AC XXXXXXXX2154 as POS TXN on 04 Apr 2025 03:43 at CryptoVault. Avl Bal 930.21 Call 94112448888 for info",
+    "is_anomaly": true
+  },
+  {
+    "text": "180.46 debited from AC XXXXXXXX2154 as POS TXN on 06 Apr 2025 19:31 at Mobitel. Avl Bal 4062.68 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "195.75 debited from AC XXXXXXXX2154 as POS TXN on 08 Apr 2025 10:04 at Keells. Avl Bal 2401.99 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "57.57 debited from AC XXXXXXXX2154 as POS TXN on 15 Apr 2025 05:26 at Mobitel. Avl Bal 3005.72 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "107.94 debited from AC XXXXXXXX2154 as POS TXN on 16 Apr 2025 13:12 at Keells. Avl Bal 3691.43 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "181.51 debited from AC XXXXXXXX2154 as POS TXN on 13 Apr 2025 08:34 at Water Board. Avl Bal 691.79 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "149.84 debited from AC XXXXXXXX2154 as POS TXN on 15 Apr 2025 02:01 at Mobitel. Avl Bal 1056.16 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "116.64 debited from AC XXXXXXXX2154 as POS TXN on 07 Apr 2025 08:39 at Spar Supermarket. Avl Bal 795.07 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "395.55 debited from AC XXXXXXXX2154 as POS TXN on 13 Apr 2025 06:42 at Spar Supermarket. Avl Bal 725.54 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "300.25 debited from AC XXXXXXXX2154 as POS TXN on 12 Apr 2025 16:16 at Domino's. Avl Bal 2846.66 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "402.92 debited from AC XXXXXXXX2154 as POS TXN on 14 Apr 2025 14:24 at Keells. Avl Bal 2801.77 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "461.92 debited from AC XXXXXXXX2154 as POS TXN on 13 Apr 2025 00:37 at Water Board. Avl Bal 3164.2 Call 94112448888 for info",
+    "is_anomaly": true
+  },
+  {
+    "text": "53.53 debited from AC XXXXXXXX2154 as POS TXN on 27 Apr 2025 20:40 at Keells. Avl Bal 622.6 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "1.43 debited from AC XXXXXXXX2154 as POS TXN on 21 Apr 2025 00:27 at QuickCheck. Avl Bal 4267.08 Call 94112448888 for info",
+    "is_anomaly": true
+  },
+  {
+    "text": "56.26 debited from AC XXXXXXXX2154 as POS TXN on 19 Apr 2025 20:42 at Mobitel. Avl Bal 1614.93 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "188.5 debited from AC XXXXXXXX2154 as POS TXN on 07 Apr 2025 07:38 at Domino's. Avl Bal 958.01 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "178.69 debited from AC XXXXXXXX2154 as POS TXN on 11 Apr 2025 12:40 at Spar Supermarket. Avl Bal 4338.71 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "301.68 debited from AC XXXXXXXX2154 as POS TXN on 18 Apr 2025 01:27 at Cafe Mocha. Avl Bal 2373.05 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "354.51 debited from AC XXXXXXXX2154 as POS TXN on 30 Apr 2025 10:16 at Spar Supermarket. Avl Bal 1626.14 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "303.56 debited from AC XXXXXXXX2154 as POS TXN on 29 Apr 2025 07:19 at Spar Supermarket. Avl Bal 755.96 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "241.66 debited from AC XXXXXXXX2154 as POS TXN on 03 Apr 2025 11:14 at Keells. Avl Bal 1926.42 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "444.97 debited from AC XXXXXXXX2154 as POS TXN on 06 Apr 2025 01:42 at Water Board. Avl Bal 2244.6 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "216.08 debited from AC XXXXXXXX2154 as POS TXN on 18 Apr 2025 22:19 at Cafe Mocha. Avl Bal 3015.17 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "389.92 debited from AC XXXXXXXX2154 as POS TXN on 06 Apr 2025 02:43 at Water Board. Avl Bal 2589.63 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "0.91 debited from AC XXXXXXXX2154 as POS TXN on 09 Apr 2025 21:46 at UnknownVendor. Avl Bal 2885.16 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "20606.81 debited from AC XXXXXXXX2154 as POS TXN on 28 Apr 2025 07:24 at CryptoVault. Avl Bal 4173.97 Call 94112448888 for info",
+    "is_anomaly": true
+  },
+  {
+    "text": "358.05 debited from AC XXXXXXXX2154 as POS TXN on 16 Apr 2025 00:49 at Water Board. Avl Bal 666.89 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "52.14 debited from AC XXXXXXXX2154 as POS TXN on 05 Apr 2025 07:34 at Water Board. Avl Bal 2114.58 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "33781.77 debited from AC XXXXXXXX2154 as POS TXN on 21 Apr 2025 22:50 at CryptoVault. Avl Bal 3773.55 Call 94112448888 for info",
+    "is_anomaly": true
+  },
+  {
+    "text": "316.32 debited from AC XXXXXXXX2154 as POS TXN on 04 Apr 2025 00:05 at Keells. Avl Bal 2865.96 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "426.81 debited from AC XXXXXXXX2154 as POS TXN on 02 Apr 2025 00:23 at Keells. Avl Bal 4969.47 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "381.28 debited from AC XXXXXXXX2154 as POS TXN on 23 Apr 2025 15:38 at Domino's. Avl Bal 1891.94 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "243.81 debited from AC XXXXXXXX2154 as POS TXN on 15 Apr 2025 03:12 at Keells. Avl Bal 3402.16 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "389.99 debited from AC XXXXXXXX2154 as POS TXN on 28 Apr 2025 15:41 at Domino's. Avl Bal 3631.73 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "296.25 debited from AC XXXXXXXX2154 as POS TXN on 25 Apr 2025 22:07 at Keells. Avl Bal 2526.81 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "310.89 debited from AC XXXXXXXX2154 as POS TXN on 08 Apr 2025 23:27 at Water Board. Avl Bal 1154.32 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "330.17 debited from AC XXXXXXXX2154 as POS TXN on 25 Apr 2025 09:22 at Cafe Mocha. Avl Bal 3639.37 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "136.21 debited from AC XXXXXXXX2154 as POS TXN on 24 Apr 2025 05:29 at Mobitel. Avl Bal 3227.33 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "292.21 debited from AC XXXXXXXX2154 as POS TXN on 29 Apr 2025 11:16 at Keells. Avl Bal 4848.25 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "287.05 debited from AC XXXXXXXX2154 as POS TXN on 10 Apr 2025 21:11 at Mobitel. Avl Bal 3143.53 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "105.87 debited from AC XXXXXXXX2154 as POS TXN on 29 Apr 2025 18:27 at Keells. Avl Bal 2368.03 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "21074.7 debited from AC XXXXXXXX2154 as POS TXN on 15 Apr 2025 06:13 at BitPulse. Avl Bal 4468.08 Call 94112448888 for info",
+    "is_anomaly": true
+  },
+  {
+    "text": "67.77 debited from AC XXXXXXXX2154 as POS TXN on 30 Apr 2025 13:08 at Water Board. Avl Bal 1686.41 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "353.45 debited from AC XXXXXXXX2154 as POS TXN on 26 Apr 2025 16:10 at Cafe Mocha. Avl Bal 1143.36 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "240.02 debited from AC XXXXXXXX2154 as POS TXN on 25 Apr 2025 12:39 at Mobitel. Avl Bal 2584.69 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "185.41 debited from AC XXXXXXXX2154 as POS TXN on 29 Apr 2025 20:22 at Keells. Avl Bal 3874.68 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "25398.64 debited from AC XXXXXXXX2154 as POS TXN on 23 Apr 2025 06:13 at BitPulse. Avl Bal 2731.7 Call 94112448888 for info",
+    "is_anomaly": true
+  },
+  {
+    "text": "316.3 debited from AC XXXXXXXX2154 as POS TXN on 13 Apr 2025 01:03 at Mobitel. Avl Bal 4217.98 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "272.91 debited from AC XXXXXXXX2154 as POS TXN on 20 Apr 2025 13:12 at Domino's. Avl Bal 696.48 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "375.51 debited from AC XXXXXXXX2154 as POS TXN on 27 Apr 2025 16:09 at Spar Supermarket. Avl Bal 2319.31 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "66.56 debited from AC XXXXXXXX2154 as POS TXN on 01 Apr 2025 23:14 at Mobitel. Avl Bal 4481.33 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "229.72 debited from AC XXXXXXXX2154 as POS TXN on 23 Apr 2025 05:44 at Water Board. Avl Bal 1788.55 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "297.6 debited from AC XXXXXXXX2154 as POS TXN on 01 Apr 2025 22:48 at Keells. Avl Bal 3288.7 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "50.88 debited from AC XXXXXXXX2154 as POS TXN on 28 Apr 2025 03:50 at Spar Supermarket. Avl Bal 4390.89 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "78.85 debited from AC XXXXXXXX2154 as POS TXN on 25 Apr 2025 18:40 at Mobitel. Avl Bal 3077.41 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "275.48 debited from AC XXXXXXXX2154 as POS TXN on 21 Apr 2025 07:57 at Keells. Avl Bal 1072.95 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "170.89 debited from AC XXXXXXXX2154 as POS TXN on 25 Apr 2025 08:41 at Cafe Mocha. Avl Bal 3202.85 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "1.17 debited from AC XXXXXXXX2154 as POS TXN on 25 Apr 2025 07:01 at QuickCheck. Avl Bal 3176.47 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "356.04 debited from AC XXXXXXXX2154 as POS TXN on 27 Apr 2025 21:09 at Cafe Mocha. Avl Bal 2068.81 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "245.33 debited from AC XXXXXXXX2154 as POS TXN on 14 Apr 2025 08:18 at Domino's. Avl Bal 4052.23 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "224.46 debited from AC XXXXXXXX2154 as POS TXN on 12 Apr 2025 17:07 at Cafe Mocha. Avl Bal 4185.59 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "235.88 debited from AC XXXXXXXX2154 as POS TXN on 17 Apr 2025 13:51 at Spar Supermarket. Avl Bal 4777.44 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "494.39 debited from AC XXXXXXXX2154 as POS TXN on 07 Apr 2025 13:49 at Spar Supermarket. Avl Bal 2851.75 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "435.37 debited from AC XXXXXXXX2154 as POS TXN on 23 Apr 2025 03:05 at Domino's. Avl Bal 3261.67 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "93.16 debited from AC XXXXXXXX2154 as POS TXN on 06 Apr 2025 15:00 at Spar Supermarket. Avl Bal 4313.25 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "235.28 debited from AC XXXXXXXX2154 as POS TXN on 18 Apr 2025 21:09 at Mobitel. Avl Bal 3570.45 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "95.81 debited from AC XXXXXXXX2154 as POS TXN on 30 Apr 2025 18:13 at Water Board. Avl Bal 2585.46 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "168.04 debited from AC XXXXXXXX2154 as POS TXN on 23 Apr 2025 06:44 at Water Board. Avl Bal 3778.79 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "201.54 debited from AC XXXXXXXX2154 as POS TXN on 15 Apr 2025 19:26 at Water Board. Avl Bal 3174.22 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "76.15 debited from AC XXXXXXXX2154 as POS TXN on 20 Apr 2025 15:54 at Spar Supermarket. Avl Bal 1359.36 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "90.75 debited from AC XXXXXXXX2154 as POS TXN on 13 Apr 2025 00:12 at Domino's. Avl Bal 2008.81 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "218.87 debited from AC XXXXXXXX2154 as POS TXN on 24 Apr 2025 23:23 at Mobitel. Avl Bal 1241.9 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "12522.17 debited from AC XXXXXXXX2154 as POS TXN on 30 Apr 2025 11:01 at QuickCheck. Avl Bal 3654.87 Call 94112448888 for info",
+    "is_anomaly": true
+  },
+  {
+    "text": "238.68 debited from AC XXXXXXXX2154 as POS TXN on 17 Apr 2025 15:06 at Mobitel. Avl Bal 1361.97 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "462.05 debited from AC XXXXXXXX2154 as POS TXN on 24 Apr 2025 01:55 at Water Board. Avl Bal 1349.37 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "299.84 debited from AC XXXXXXXX2154 as POS TXN on 06 Apr 2025 17:09 at Keells. Avl Bal 4741.58 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "394.08 debited from AC XXXXXXXX2154 as POS TXN on 04 Apr 2025 07:04 at Domino's. Avl Bal 2659.44 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "156.71 debited from AC XXXXXXXX2154 as POS TXN on 09 Apr 2025 06:50 at Water Board. Avl Bal 4618.79 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "437.53 debited from AC XXXXXXXX2154 as POS TXN on 22 Apr 2025 00:13 at Water Board. Avl Bal 4053.97 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "372.26 debited from AC XXXXXXXX2154 as POS TXN on 27 Apr 2025 15:11 at Domino's. Avl Bal 1592.11 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "268.86 debited from AC XXXXXXXX2154 as POS TXN on 22 Apr 2025 04:59 at Water Board. Avl Bal 3202.34 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "94.51 debited from AC XXXXXXXX2154 as POS TXN on 20 Apr 2025 22:23 at Mobitel. Avl Bal 3594.34 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "58.58 debited from AC XXXXXXXX2154 as POS TXN on 26 Apr 2025 05:54 at Cafe Mocha. Avl Bal 2817.4 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "0.64 debited from AC XXXXXXXX2154 as POS TXN on 15 Apr 2025 03:53 at UnknownVendor. Avl Bal 1115.38 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "264.98 debited from AC XXXXXXXX2154 as POS TXN on 21 Apr 2025 23:20 at Spar Supermarket. Avl Bal 1163.72 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "406.44 debited from AC XXXXXXXX2154 as POS TXN on 11 Apr 2025 22:15 at Cafe Mocha. Avl Bal 4407.74 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "480.53 debited from AC XXXXXXXX2154 as POS TXN on 06 Apr 2025 01:32 at Mobitel. Avl Bal 1210.85 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "150.88 debited from AC XXXXXXXX2154 as POS TXN on 06 Apr 2025 15:07 at Domino's. Avl Bal 3933.17 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "172.09 debited from AC XXXXXXXX2154 as POS TXN on 09 Apr 2025 20:25 at Water Board. Avl Bal 3462.94 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "228.7 debited from AC XXXXXXXX2154 as POS TXN on 04 Apr 2025 12:55 at Spar Supermarket. Avl Bal 1066.51 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "215.46 debited from AC XXXXXXXX2154 as POS TXN on 02 Apr 2025 07:10 at Keells. Avl Bal 3175.61 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "262.26 debited from AC XXXXXXXX2154 as POS TXN on 02 Apr 2025 03:41 at Mobitel. Avl Bal 2748.67 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "116.15 debited from AC XXXXXXXX2154 as POS TXN on 22 Apr 2025 19:38 at Mobitel. Avl Bal 1649.22 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "281.07 debited from AC XXXXXXXX2154 as POS TXN on 27 Apr 2025 08:10 at Domino's. Avl Bal 1106.81 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "120.19 debited from AC XXXXXXXX2154 as POS TXN on 04 Apr 2025 23:44 at Domino's. Avl Bal 3433.59 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "267.0 debited from AC XXXXXXXX2154 as POS TXN on 18 Apr 2025 02:10 at Domino's. Avl Bal 3651.31 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "273.51 debited from AC XXXXXXXX2154 as POS TXN on 25 Apr 2025 16:33 at Domino's. Avl Bal 2019.7 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "179.03 debited from AC XXXXXXXX2154 as POS TXN on 29 Apr 2025 20:50 at Keells. Avl Bal 2491.71 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "34297.75 debited from AC XXXXXXXX2154 as POS TXN on 10 Apr 2025 04:59 at QuickCheck. Avl Bal 3047.1 Call 94112448888 for info",
+    "is_anomaly": true
+  },
+  {
+    "text": "143.8 debited from AC XXXXXXXX2154 as POS TXN on 08 Apr 2025 14:54 at Domino's. Avl Bal 957.82 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "417.53 debited from AC XXXXXXXX2154 as POS TXN on 24 Apr 2025 06:03 at Cafe Mocha. Avl Bal 769.03 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "457.82 debited from AC XXXXXXXX2154 as POS TXN on 08 Apr 2025 13:21 at Spar Supermarket. Avl Bal 3408.0 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "17762.17 debited from AC XXXXXXXX2154 as POS TXN on 11 Apr 2025 20:41 at CryptoVault. Avl Bal 3844.39 Call 94112448888 for info",
+    "is_anomaly": true
+  },
+  {
+    "text": "155.73 debited from AC XXXXXXXX2154 as POS TXN on 18 Apr 2025 20:43 at Keells. Avl Bal 3258.5 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "180.74 debited from AC XXXXXXXX2154 as POS TXN on 21 Apr 2025 12:03 at Cafe Mocha. Avl Bal 2332.73 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "331.2 debited from AC XXXXXXXX2154 as POS TXN on 01 Apr 2025 18:40 at Spar Supermarket. Avl Bal 1747.52 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "480.85 debited from AC XXXXXXXX2154 as POS TXN on 21 Apr 2025 21:58 at Keells. Avl Bal 4452.05 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "292.79 debited from AC XXXXXXXX2154 as POS TXN on 26 Apr 2025 03:42 at Domino's. Avl Bal 2845.31 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "186.86 debited from AC XXXXXXXX2154 as POS TXN on 01 May 2025 06:57 at Water Board. Avl Bal 3044.81 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "292.89 debited from AC XXXXXXXX2154 as POS TXN on 26 Apr 2025 17:40 at Cafe Mocha. Avl Bal 1293.05 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "357.49 debited from AC XXXXXXXX2154 as POS TXN on 28 Apr 2025 06:04 at Mobitel. Avl Bal 4554.85 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "430.21 debited from AC XXXXXXXX2154 as POS TXN on 06 Apr 2025 12:51 at Spar Supermarket. Avl Bal 4687.44 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "444.31 debited from AC XXXXXXXX2154 as POS TXN on 28 Apr 2025 13:03 at Spar Supermarket. Avl Bal 1236.22 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "284.85 debited from AC XXXXXXXX2154 as POS TXN on 16 Apr 2025 18:09 at Cafe Mocha. Avl Bal 700.85 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "476.03 debited from AC XXXXXXXX2154 as POS TXN on 09 Apr 2025 06:51 at Cafe Mocha. Avl Bal 2426.39 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "426.74 debited from AC XXXXXXXX2154 as POS TXN on 04 Apr 2025 01:46 at Cafe Mocha. Avl Bal 2691.72 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "169.94 debited from AC XXXXXXXX2154 as POS TXN on 01 May 2025 07:59 at Mobitel. Avl Bal 1971.95 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "217.45 debited from AC XXXXXXXX2154 as POS TXN on 21 Apr 2025 04:09 at Cafe Mocha. Avl Bal 1119.49 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "148.83 debited from AC XXXXXXXX2154 as POS TXN on 18 Apr 2025 00:51 at Keells. Avl Bal 4905.04 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "0.97 debited from AC XXXXXXXX2154 as POS TXN on 23 Apr 2025 13:14 at QuickCheck. Avl Bal 721.57 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "223.76 debited from AC XXXXXXXX2154 as POS TXN on 16 Apr 2025 14:56 at Cafe Mocha. Avl Bal 2245.08 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "56.19 debited from AC XXXXXXXX2154 as POS TXN on 04 Apr 2025 01:12 at Mobitel. Avl Bal 1297.1 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "193.99 debited from AC XXXXXXXX2154 as POS TXN on 19 Apr 2025 02:11 at Spar Supermarket. Avl Bal 4876.57 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "204.69 debited from AC XXXXXXXX2154 as POS TXN on 09 Apr 2025 12:21 at Keells. Avl Bal 1248.37 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "78.32 debited from AC XXXXXXXX2154 as POS TXN on 29 Apr 2025 10:42 at Mobitel. Avl Bal 3837.91 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "261.97 debited from AC XXXXXXXX2154 as POS TXN on 16 Apr 2025 00:31 at Spar Supermarket. Avl Bal 2725.73 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "350.69 debited from AC XXXXXXXX2154 as POS TXN on 08 Apr 2025 23:58 at Spar Supermarket. Avl Bal 1807.79 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "107.22 debited from AC XXXXXXXX2154 as POS TXN on 05 Apr 2025 15:11 at Mobitel. Avl Bal 3631.75 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "151.61 debited from AC XXXXXXXX2154 as POS TXN on 06 Apr 2025 01:10 at Domino's. Avl Bal 1063.28 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "139.66 debited from AC XXXXXXXX2154 as POS TXN on 15 Apr 2025 15:26 at Cafe Mocha. Avl Bal 1584.7 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "332.99 debited from AC XXXXXXXX2154 as POS TXN on 14 Apr 2025 08:41 at Cafe Mocha. Avl Bal 3494.77 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "414.71 debited from AC XXXXXXXX2154 as POS TXN on 08 Apr 2025 17:55 at Cafe Mocha. Avl Bal 4053.97 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "471.26 debited from AC XXXXXXXX2154 as POS TXN on 15 Apr 2025 04:54 at Cafe Mocha. Avl Bal 4049.49 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "456.57 debited from AC XXXXXXXX2154 as POS TXN on 29 Apr 2025 23:26 at Spar Supermarket. Avl Bal 1460.24 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "344.09 debited from AC XXXXXXXX2154 as POS TXN on 27 Apr 2025 00:52 at Cafe Mocha. Avl Bal 3455.43 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "349.39 debited from AC XXXXXXXX2154 as POS TXN on 01 May 2025 07:56 at Keells. Avl Bal 4352.43 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "74.24 debited from AC XXXXXXXX2154 as POS TXN on 04 Apr 2025 21:43 at Spar Supermarket. Avl Bal 1188.97 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "189.62 debited from AC XXXXXXXX2154 as POS TXN on 08 Apr 2025 15:37 at Cafe Mocha. Avl Bal 1623.52 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "485.03 debited from AC XXXXXXXX2154 as POS TXN on 27 Apr 2025 06:18 at Spar Supermarket. Avl Bal 4963.27 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "93.04 debited from AC XXXXXXXX2154 as POS TXN on 19 Apr 2025 08:21 at Domino's. Avl Bal 2634.8 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "253.18 debited from AC XXXXXXXX2154 as POS TXN on 30 Apr 2025 11:13 at Mobitel. Avl Bal 4740.95 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "135.42 debited from AC XXXXXXXX2154 as POS TXN on 27 Apr 2025 16:12 at Domino's. Avl Bal 2711.88 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "298.04 debited from AC XXXXXXXX2154 as POS TXN on 04 Apr 2025 15:39 at Mobitel. Avl Bal 1992.29 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "148.38 debited from AC XXXXXXXX2154 as POS TXN on 29 Apr 2025 05:25 at Domino's. Avl Bal 2770.48 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "382.14 debited from AC XXXXXXXX2154 as POS TXN on 29 Apr 2025 12:43 at Mobitel. Avl Bal 4578.34 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "415.16 debited from AC XXXXXXXX2154 as POS TXN on 10 Apr 2025 10:34 at Keells. Avl Bal 649.66 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "379.03 debited from AC XXXXXXXX2154 as POS TXN on 07 Apr 2025 02:44 at Cafe Mocha. Avl Bal 2553.49 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "21685.09 debited from AC XXXXXXXX2154 as POS TXN on 13 Apr 2025 10:35 at CryptoVault. Avl Bal 2310.87 Call 94112448888 for info",
+    "is_anomaly": true
+  },
+  {
+    "text": "348.2 debited from AC XXXXXXXX2154 as POS TXN on 06 Apr 2025 16:50 at Cafe Mocha. Avl Bal 2727.96 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "84.67 debited from AC XXXXXXXX2154 as POS TXN on 16 Apr 2025 16:36 at Spar Supermarket. Avl Bal 2253.45 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "350.28 debited from AC XXXXXXXX2154 as POS TXN on 14 Apr 2025 06:02 at Mobitel. Avl Bal 1166.52 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "77.98 debited from AC XXXXXXXX2154 as POS TXN on 11 Apr 2025 03:00 at Keells. Avl Bal 2090.26 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "461.37 debited from AC XXXXXXXX2154 as POS TXN on 07 Apr 2025 00:31 at Domino's. Avl Bal 3373.17 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "171.4 debited from AC XXXXXXXX2154 as POS TXN on 18 Apr 2025 11:44 at Cafe Mocha. Avl Bal 1149.21 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "402.62 debited from AC XXXXXXXX2154 as POS TXN on 20 Apr 2025 22:07 at Keells. Avl Bal 4021.33 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "459.48 debited from AC XXXXXXXX2154 as POS TXN on 14 Apr 2025 11:51 at Domino's. Avl Bal 2759.76 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "257.84 debited from AC XXXXXXXX2154 as POS TXN on 21 Apr 2025 00:57 at Keells. Avl Bal 4057.31 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "109.48 debited from AC XXXXXXXX2154 as POS TXN on 06 Apr 2025 00:42 at Cafe Mocha. Avl Bal 1901.48 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "186.57 debited from AC XXXXXXXX2154 as POS TXN on 18 Apr 2025 06:44 at Mobitel. Avl Bal 851.15 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "214.53 debited from AC XXXXXXXX2154 as POS TXN on 16 Apr 2025 01:56 at Mobitel. Avl Bal 4622.74 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "362.96 debited from AC XXXXXXXX2154 as POS TXN on 14 Apr 2025 12:42 at Mobitel. Avl Bal 1751.76 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "315.67 debited from AC XXXXXXXX2154 as POS TXN on 23 Apr 2025 11:52 at Spar Supermarket. Avl Bal 659.01 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "209.21 debited from AC XXXXXXXX2154 as POS TXN on 15 Apr 2025 18:46 at Spar Supermarket. Avl Bal 4486.08 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "272.93 debited from AC XXXXXXXX2154 as POS TXN on 28 Apr 2025 19:51 at Keells. Avl Bal 2963.78 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "172.67 debited from AC XXXXXXXX2154 as POS TXN on 13 Apr 2025 21:57 at Spar Supermarket. Avl Bal 2834.55 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "82.87 debited from AC XXXXXXXX2154 as POS TXN on 25 Apr 2025 00:55 at Mobitel. Avl Bal 1563.39 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "21873.0 debited from AC XXXXXXXX2154 as POS TXN on 28 Apr 2025 22:29 at UnknownVendor. Avl Bal 4172.65 Call 94112448888 for info",
+    "is_anomaly": true
+  },
+  {
+    "text": "350.25 debited from AC XXXXXXXX2154 as POS TXN on 23 Apr 2025 04:00 at Domino's. Avl Bal 736.23 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "319.5 debited from AC XXXXXXXX2154 as POS TXN on 08 Apr 2025 18:05 at Cafe Mocha. Avl Bal 1520.51 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "209.43 debited from AC XXXXXXXX2154 as POS TXN on 21 Apr 2025 16:04 at Water Board. Avl Bal 2641.36 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "474.25 debited from AC XXXXXXXX2154 as POS TXN on 08 Apr 2025 12:17 at Spar Supermarket. Avl Bal 3414.11 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "458.62 debited from AC XXXXXXXX2154 as POS TXN on 28 Apr 2025 01:02 at Water Board. Avl Bal 2952.33 Call 94112448888 for info",
+    "is_anomaly": true
+  },
+  {
+    "text": "191.78 debited from AC XXXXXXXX2154 as POS TXN on 02 Apr 2025 03:18 at Cafe Mocha. Avl Bal 3414.31 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "345.59 debited from AC XXXXXXXX2154 as POS TXN on 15 Apr 2025 17:46 at Domino's. Avl Bal 1442.13 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "223.57 debited from AC XXXXXXXX2154 as POS TXN on 27 Apr 2025 15:30 at Keells. Avl Bal 2734.45 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "228.38 debited from AC XXXXXXXX2154 as POS TXN on 16 Apr 2025 00:50 at Mobitel. Avl Bal 3836.81 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "58.24 debited from AC XXXXXXXX2154 as POS TXN on 23 Apr 2025 02:36 at Water Board. Avl Bal 3654.43 Call 94112448888 for info",
+    "is_anomaly": false
+  },
+  {
+    "text": "115.84 debited from AC XXXXXXXX2154 as POS TXN on 12 Apr 2025 22:47 at Keells. Avl Bal 1077.35 Call 94112448888 for info",
+    "is_anomaly": false
+  }
+]
