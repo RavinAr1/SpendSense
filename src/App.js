@@ -68,7 +68,7 @@ function AppWrapper() {
             <Route path="/home" element={<Home />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/transactions" element={<AllTransactions />} />
-            <Route path="/stockInsights" element={<StockInsights />} />
+            <Route path="/insights" element={<StockInsights />} />
             <Route path="*" element={<Navigate to="/home" />} />
           </Routes>
         </div>

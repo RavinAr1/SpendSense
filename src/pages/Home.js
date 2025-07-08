@@ -70,7 +70,7 @@ const Home = () => {
 
 
         {/* Expandable Features Section */}
-        <Accordion sx={{ mt: 5, maxWidth: "1130px", mx: "auto", textAlign: "left" }}>
+        {/* <Accordion sx={{ mt: 5, maxWidth: "1130px", mx: "auto", textAlign: "left" }}>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
             aria-controls="panel1a-content"
@@ -107,7 +107,7 @@ const Home = () => {
               🚀 Stay tuned for updates as we expand SpendSense with new AI-powered features!
             </Typography>
           </AccordionDetails>
-        </Accordion>
+        </Accordion> */}
       </Container>
     </Box>
   );

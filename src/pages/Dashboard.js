@@ -48,7 +48,7 @@ ChartJS.register(ArcElement, Tooltip, Legend, CategoryScale, LinearScale, BarEle
 const Dashboard = () => {
   const [dashboardData, setDashboardData] = useState(null);
   const [userIncome, setUserIncome] = useState("");
-  const [pastSavings, setPastSavings] = useState("");
+  // const [pastSavings, setPastSavings] = useState("");
   const [userBudget, setUserBudget] = useState({});
   const [smsTransactions, setSmsTransactions] = useState([]);
   const [error, setError] = useState(null);
@@ -236,7 +236,7 @@ const Dashboard = () => {
   const handleSubmit = async () => {
     const userInputs = {
       user_income: userIncome || null,
-      past_savings: pastSavings || 0,
+      // past_savings: pastSavings || 0,
       user_budget: Object.fromEntries(
         Object.entries(userBudget).map(([key, value]) => [key, value || null])
       ),
@@ -274,7 +274,7 @@ const Dashboard = () => {
                 onChange={(e) => setUserIncome(e.target.value)}
               />
             </Grid>
-            <Grid item xs={6}>
+            {/* <Grid item xs={6}>
               <TextField
                 label="Past Savings"
                 type="number"
@@ -283,7 +283,7 @@ const Dashboard = () => {
                 value={pastSavings}
                 onChange={(e) => setPastSavings(e.target.value)}
               />
-            </Grid>
+            </Grid> */}
           </Grid>
 
           <Typography variant="h6" sx={{ fontWeight: "bold", mt: 3 }}>
@@ -492,6 +492,9 @@ const Dashboard = () => {
               )}
             </Grid>
 
+
+
+
             <Divider sx={{ my: 3 }} />
 
             {/* === Charts === */}
@@ -505,11 +508,11 @@ const Dashboard = () => {
                 </Typography>
                 <Doughnut
                   data={{
-                    labels: ["Income", "Remaining"],
+                    labels: ["Expenses", "Remaining"],
                     datasets: [
                       {
                         data: [
-                          dashboardData.income_prediction || 0,
+                          Object.values(dashboardData.budget_allocations || {}).reduce((a, b) => a + b, 0),
                           dashboardData.free_budget || 0,
                         ],
                         backgroundColor: ["#28A745", "#FF5733"],
@@ -529,6 +532,8 @@ const Dashboard = () => {
                     },
                   }}
                 />
+
+
               </Paper>
             </Grid>
 

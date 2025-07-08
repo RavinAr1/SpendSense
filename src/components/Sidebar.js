@@ -71,7 +71,7 @@ const Sidebar = () => {
 
 
           <ListItem disablePadding>
-            <ListItemButton component={Link} to="/stockInsights">
+            <ListItemButton component={Link} to="/insights">
               <Insights sx={{ mr: 2 }} />
               <ListItemText primary="Stock Insights" />
             </ListItemButton>
