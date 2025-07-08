@@ -73,6 +73,8 @@ savings_targets = {
     "Miscellaneous": 0.20
 }
 
+
+
 @app.route('/predict_expenses', methods=['POST'])
 def predict_expenses():
     try:
