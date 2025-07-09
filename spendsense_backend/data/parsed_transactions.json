@@ -1,0 +1,387 @@
+[
+  {
+    "amount": 5263.03,
+    "type": "credit",
+    "date": "2025-03-15 22:43",
+    "vendor": "Bank Transfer",
+    "category": "Miscellaneous"
+  },
+  {
+    "amount": 128.06,
+    "type": "debit",
+    "date": "2025-03-22 14:11",
+    "vendor": "Steam Games",
+    "category": "Entertainment"
+  },
+  {
+    "amount": 171.16,
+    "type": "debit",
+    "date": "2025-03-29 16:05",
+    "vendor": "Water Board",
+    "category": "Utilities"
+  },
+  {
+    "amount": 234.4,
+    "type": "debit",
+    "date": "2025-03-11 02:57",
+    "vendor": "Domino's",
+    "category": "Eating_Out"
+  },
+  {
+    "amount": 240.29,
+    "type": "debit",
+    "date": "2025-03-09 00:35",
+    "vendor": "Pizza Hut",
+    "category": "Eating_Out"
+  },
+  {
+    "amount": 379.09,
+    "type": "debit",
+    "date": "2025-03-13 06:35",
+    "vendor": "Arpico Supercenter",
+    "category": "Groceries"
+  },
+  {
+    "amount": 208.08,
+    "type": "debit",
+    "date": "2025-03-24 18:30",
+    "vendor": "Mobitel Postpaid",
+    "category": "Miscellaneous"
+  },
+  {
+    "amount": 132.02,
+    "type": "debit",
+    "date": "2025-03-11 02:37",
+    "vendor": "Steam Games",
+    "category": "Entertainment"
+  },
+  {
+    "amount": 205.1,
+    "type": "debit",
+    "date": "2025-03-06 16:34",
+    "vendor": "HNB Insurance",
+    "category": "Insurance"
+  },
+  {
+    "amount": 7191.62,
+    "type": "credit",
+    "date": "2025-03-25 20:58",
+    "vendor": "Bank Transfer",
+    "category": "Miscellaneous"
+  },
+  {
+    "amount": 682.21,
+    "type": "debit",
+    "date": "2025-03-08 03:41",
+    "vendor": "Flat Rent",
+    "category": "Rent"
+  },
+  {
+    "amount": 323.39,
+    "type": "debit",
+    "date": "2025-03-01 22:48",
+    "vendor": "Spar Supermarket",
+    "category": "Groceries"
+  },
+  {
+    "amount": 295.77,
+    "type": "debit",
+    "date": "2025-03-07 22:09",
+    "vendor": "Domino's",
+    "category": "Eating_Out"
+  },
+  {
+    "amount": 340.47,
+    "type": "debit",
+    "date": "2025-03-20 17:46",
+    "vendor": "Arpico Supercenter",
+    "category": "Groceries"
+  },
+  {
+    "amount": 171.89,
+    "type": "debit",
+    "date": "2025-03-22 23:59",
+    "vendor": "Asiri Medical",
+    "category": "Healthcare"
+  },
+  {
+    "amount": 205.1,
+    "type": "debit",
+    "date": "2025-03-06 16:34",
+    "vendor": "HNB Insurance",
+    "category": "Insurance"
+  },
+  {
+    "amount": 323.39,
+    "type": "debit",
+    "date": "2025-03-01 22:48",
+    "vendor": "Spar Supermarket",
+    "category": "Groceries"
+  },
+  {
+    "amount": 193.7,
+    "type": "debit",
+    "date": "2025-03-28 10:54",
+    "vendor": "Pharmacy",
+    "category": "Healthcare"
+  },
+  {
+    "amount": 361.21,
+    "type": "debit",
+    "date": "2025-03-26 06:59",
+    "vendor": "Spar Supermarket",
+    "category": "Groceries"
+  },
+  {
+    "amount": 682.21,
+    "type": "debit",
+    "date": "2025-03-08 03:41",
+    "vendor": "Flat Rent",
+    "category": "Rent"
+  },
+  {
+    "amount": 105.13,
+    "type": "debit",
+    "date": "2025-03-11 02:05",
+    "vendor": "Netflix",
+    "category": "Entertainment"
+  },
+  {
+    "amount": 190.69,
+    "type": "debit",
+    "date": "2025-03-22 10:44",
+    "vendor": "Domino's",
+    "category": "Eating_Out"
+  },
+  {
+    "amount": 48.23,
+    "type": "debit",
+    "date": "2025-03-16 02:27",
+    "vendor": "Bookstore",
+    "category": "Miscellaneous"
+  },
+  {
+    "amount": 340.47,
+    "type": "debit",
+    "date": "2025-03-20 17:46",
+    "vendor": "Arpico Supercenter",
+    "category": "Groceries"
+  },
+  {
+    "amount": 161.64,
+    "type": "debit",
+    "date": "2025-03-05 08:07",
+    "vendor": "Mobitel Postpaid",
+    "category": "Miscellaneous"
+  },
+  {
+    "amount": 295.77,
+    "type": "debit",
+    "date": "2025-03-07 22:09",
+    "vendor": "Domino's",
+    "category": "Eating_Out"
+  },
+  {
+    "amount": 163.07,
+    "type": "debit",
+    "date": "2025-03-03 03:33",
+    "vendor": "Allianz",
+    "category": "Insurance"
+  },
+  {
+    "amount": 147.05,
+    "type": "debit",
+    "date": "2025-03-23 05:49",
+    "vendor": "Steam Games",
+    "category": "Entertainment"
+  },
+  {
+    "amount": 5487.17,
+    "type": "credit",
+    "date": "2025-03-02 12:01",
+    "vendor": "Freelance Payment",
+    "category": "Miscellaneous"
+  },
+  {
+    "amount": 105.13,
+    "type": "debit",
+    "date": "2025-03-11 02:05",
+    "vendor": "Netflix",
+    "category": "Entertainment"
+  },
+  {
+    "amount": 102.4,
+    "type": "debit",
+    "date": "2025-03-15 12:29",
+    "vendor": "YouTube Premium",
+    "category": "Entertainment"
+  },
+  {
+    "amount": 190.69,
+    "type": "debit",
+    "date": "2025-03-22 10:44",
+    "vendor": "Domino's",
+    "category": "Eating_Out"
+  },
+  {
+    "amount": 120.88,
+    "type": "debit",
+    "date": "2025-03-10 12:02",
+    "vendor": "Water Board",
+    "category": "Utilities"
+  },
+  {
+    "amount": 9468.14,
+    "type": "credit",
+    "date": "2025-03-03 21:03",
+    "vendor": "Bank Transfer",
+    "category": "Miscellaneous"
+  },
+  {
+    "amount": 240.29,
+    "type": "debit",
+    "date": "2025-03-09 00:35",
+    "vendor": "Pizza Hut",
+    "category": "Eating_Out"
+  },
+  {
+    "amount": 9468.14,
+    "type": "credit",
+    "date": "2025-03-03 21:03",
+    "vendor": "Bank Transfer",
+    "category": "Miscellaneous"
+  },
+  {
+    "amount": 205.1,
+    "type": "debit",
+    "date": "2025-03-06 16:34",
+    "vendor": "HNB Insurance",
+    "category": "Insurance"
+  },
+  {
+    "amount": 54.61,
+    "type": "debit",
+    "date": "2025-03-26 12:40",
+    "vendor": "Hardware Store",
+    "category": "Miscellaneous"
+  },
+  {
+    "amount": 187.57,
+    "type": "debit",
+    "date": "2025-03-14 08:00",
+    "vendor": "Spotify",
+    "category": "Entertainment"
+  },
+  {
+    "amount": 6235.92,
+    "type": "credit",
+    "date": "2025-03-14 01:12",
+    "vendor": "Freelance Payment",
+    "category": "Miscellaneous"
+  },
+  {
+    "amount": 299.25,
+    "type": "debit",
+    "date": "2025-03-10 03:13",
+    "vendor": "Uber Rides",
+    "category": "Transport"
+  },
+  {
+    "amount": 147.05,
+    "type": "debit",
+    "date": "2025-03-23 05:49",
+    "vendor": "Steam Games",
+    "category": "Entertainment"
+  },
+  {
+    "amount": 7191.62,
+    "type": "credit",
+    "date": "2025-03-25 20:58",
+    "vendor": "Bank Transfer",
+    "category": "Miscellaneous"
+  },
+  {
+    "amount": 6235.92,
+    "type": "credit",
+    "date": "2025-03-14 01:12",
+    "vendor": "Freelance Payment",
+    "category": "Miscellaneous"
+  },
+  {
+    "amount": 54.61,
+    "type": "debit",
+    "date": "2025-03-26 12:40",
+    "vendor": "Hardware Store",
+    "category": "Miscellaneous"
+  },
+  {
+    "amount": 190.69,
+    "type": "debit",
+    "date": "2025-03-22 10:44",
+    "vendor": "Domino's",
+    "category": "Eating_Out"
+  },
+  {
+    "amount": 120.88,
+    "type": "debit",
+    "date": "2025-03-10 12:02",
+    "vendor": "Water Board",
+    "category": "Utilities"
+  },
+  {
+    "amount": 672.42,
+    "type": "debit",
+    "date": "2025-03-14 16:44",
+    "vendor": "House Lease",
+    "category": "Rent"
+  },
+  {
+    "amount": 128.06,
+    "type": "debit",
+    "date": "2025-03-22 14:11",
+    "vendor": "Steam Games",
+    "category": "Entertainment"
+  },
+  {
+    "amount": 163.07,
+    "type": "debit",
+    "date": "2025-03-03 03:33",
+    "vendor": "Allianz",
+    "category": "Insurance"
+  },
+  {
+    "amount": 171.16,
+    "type": "debit",
+    "date": "2025-03-29 16:05",
+    "vendor": "Water Board",
+    "category": "Utilities"
+  },
+  {
+    "amount": 215.38,
+    "type": "debit",
+    "date": "2025-03-30 08:23",
+    "vendor": "Water Board",
+    "category": "Utilities"
+  },
+  {
+    "amount": 323.39,
+    "type": "debit",
+    "date": "2025-03-01 22:48",
+    "vendor": "Spar Supermarket",
+    "category": "Groceries"
+  },
+  {
+    "amount": 180.19,
+    "type": "debit",
+    "date": "2025-03-28 12:23",
+    "vendor": "Lanka Hospitals",
+    "category": "Healthcare"
+  },
+  {
+    "amount": 234.4,
+    "type": "debit",
+    "date": "2025-03-11 02:57",
+    "vendor": "Domino's",
+    "category": "Eating_Out"
+  }
+]
